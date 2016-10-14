@@ -276,6 +276,25 @@
           </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/code/" itemprop="url" rel="index">
+                    <span itemprop="name">code</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
 
           
             
@@ -300,54 +319,23 @@
       
         
           
-            <p>categories: 随笔 # 配置categories</p>
-<h2 id="本文导航"><a href="#本文导航" class="headerlink" title="本文导航"></a>本文导航</h2><ul>
-<li>关于Hexo</li>
-<li>Hexo本地搭建步骤</li>
-<li>结束语</li>
-</ul>
-<h2 id="关于Hexo"><a href="#关于Hexo" class="headerlink" title="关于Hexo"></a>关于Hexo</h2><p>A fast, simple &amp; powerful blog framework, powered by Node.js.</p>
-<p><a href="https://github.com/hexojs/hexo" target="_blank" rel="external">Hexo</a>是一名台湾在校大学生基于node.js开发的静态博客网站生成器。</p>
-<p>官方介绍它的特点如下：</p>
-<ul>
-<li>快速生成静态页面</li>
-<li>支持Markdown标记语言和Octopress插件</li>
-<li>可一键布置到GitHub Pages, Heroku等</li>
-<li>强大的插件支持</li>
-</ul>
-<h2 id="Hexo本地搭建步骤"><a href="#Hexo本地搭建步骤" class="headerlink" title="Hexo本地搭建步骤"></a>Hexo本地搭建步骤</h2><p>本机环境： Win7 32位</p>
-<h3 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h3><p>Hexo是用node.js语言写的，需要在本地安装node.js的运行环境。<br>请根据自己的环境到<a href="http://nodejs.cn/download/" target="_blank" rel="external">node.js官网</a>下载最新匹配版本安装即可。</p>
-<h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><p>到<a href="https://git-scm.com/download/" target="_blank" rel="external">git官网</a>下载最新安装版本</p>
-<h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><ul>
-<li><p>node.js和git安装完成后，在目标文件夹中新建命名为”hexo”的文件夹，在当前文件夹中点击鼠标右键，选择”Git Bash Here”。</p>
-</li>
-<li><p>输入如下命令安装hexo。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g hexo</div></pre></td></tr></table></figure>
-</li>
-<li><p>初始化hexo，执行init命令初始化hexo到制定目录(blog)，</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo init blog</div></pre></td></tr></table></figure>
-<p>也可以初始化到当前目录。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo init</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>完成全部安装。</p>
-<h3 id="启动本地测试"><a href="#启动本地测试" class="headerlink" title="启动本地测试"></a>启动本地测试</h3><ul>
-<li><p>在init目录下（hexo/blog）执行generate命令，生成public文件夹</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>或者</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo g</div></pre></td></tr></table></figure>
-</li>
-<li><p>执行命令，启动本地服务</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>或者</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo s</div></pre></td></tr></table></figure>
-</li>
-<li><p>浏览器输入<a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a> 即可看到预览页面</p>
-</li>
-</ul>
-<h2 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h2><p>机缘巧合下发现了这个神器，得知许多大牛通过这个方便简洁的博客系统建立自己的个人博客，本来抱着求知的态度来学习并建立属于自己的第一个个人站，并希望鞭策自己远离懒癌，不断前行。</p>
+          本文导航
+关于Hexo
+Hexo本地搭建步骤
+结束语
 
-          
+关于HexoA fast, simple &amp; powerful blog framework, powered by Node.js.
+Hexo是一名台湾在校大学生基于node.js开发的静态博客网站生成器。
+官方介绍它的特点如下：
+
+
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/10/14/hexo01/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -439,17 +427,14 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
+          ...
 
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/10/11/hello-world/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -523,6 +508,13 @@
           </div>
 
           
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
           
             <div class="site-state-item site-state-tags">
@@ -538,6 +530,17 @@
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/AimeeLee77" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
           
         </div>
 

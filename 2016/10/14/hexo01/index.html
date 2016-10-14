@@ -84,8 +84,7 @@
 
 
 
-<meta name="description" content="categories: 随笔 # 配置categories
-本文导航
+<meta name="description" content="本文导航
 关于Hexo
 Hexo本地搭建步骤
 结束语
@@ -95,13 +94,13 @@ Hexo是一名台湾在校大学生基于node.js开发的静态博客网站生成
 官方介绍它的特点如下：
 
 快速生成静态页面
-支持Markdown标">
+支持Markdown标记语言和Octopress插件
+可一键布置到GitHub P">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo系列-（1）本地搭建">
 <meta property="og:url" content="https://aimeelee77.github.io/2016/10/14/hexo01/index.html">
 <meta property="og:site_name" content="AimeeLee的小世界">
-<meta property="og:description" content="categories: 随笔 # 配置categories
-本文导航
+<meta property="og:description" content="本文导航
 关于Hexo
 Hexo本地搭建步骤
 结束语
@@ -111,12 +110,12 @@ Hexo是一名台湾在校大学生基于node.js开发的静态博客网站生成
 官方介绍它的特点如下：
 
 快速生成静态页面
-支持Markdown标">
-<meta property="og:updated_time" content="2016-10-14T03:53:38.321Z">
+支持Markdown标记语言和Octopress插件
+可一键布置到GitHub P">
+<meta property="og:updated_time" content="2016-10-14T06:59:45.328Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo系列-（1）本地搭建">
-<meta name="twitter:description" content="categories: 随笔 # 配置categories
-本文导航
+<meta name="twitter:description" content="本文导航
 关于Hexo
 Hexo本地搭建步骤
 结束语
@@ -126,7 +125,8 @@ Hexo是一名台湾在校大学生基于node.js开发的静态博客网站生成
 官方介绍它的特点如下：
 
 快速生成静态页面
-支持Markdown标">
+支持Markdown标记语言和Octopress插件
+可一键布置到GitHub P">
 
 
 
@@ -308,6 +308,25 @@ Hexo是一名台湾在校大学生基于node.js开发的静态博客网站生成
           </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/code/" itemprop="url" rel="index">
+                    <span itemprop="name">code</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
 
           
             
@@ -330,8 +349,7 @@ Hexo是一名台湾在校大学生基于node.js开发的静态博客网站生成
       
 
       
-        <p>categories: 随笔 # 配置categories</p>
-<h2 id="本文导航"><a href="#本文导航" class="headerlink" title="本文导航"></a>本文导航</h2><ul>
+        <h2 id="本文导航"><a href="#本文导航" class="headerlink" title="本文导航"></a>本文导航</h2><ul>
 <li>关于Hexo</li>
 <li>Hexo本地搭建步骤</li>
 <li>结束语</li>
@@ -352,7 +370,7 @@ Hexo是一名台湾在校大学生基于node.js开发的静态博客网站生成
 <li><p>node.js和git安装完成后，在目标文件夹中新建命名为”hexo”的文件夹，在当前文件夹中点击鼠标右键，选择”Git Bash Here”。</p>
 </li>
 <li><p>输入如下命令安装hexo。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g hexo</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-cli -g</div></pre></td></tr></table></figure>
 </li>
 <li><p>初始化hexo，执行init命令初始化hexo到制定目录(blog)，</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo init blog</div></pre></td></tr></table></figure>
@@ -487,6 +505,13 @@ Hexo是一名台湾在校大学生基于node.js开发的静态博客网站生成
           </div>
 
           
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
           
             <div class="site-state-item site-state-tags">
@@ -502,6 +527,17 @@ Hexo是一名台湾在校大学生基于node.js开发的静态博客网站生成
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/AimeeLee77" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
           
         </div>
 
