@@ -87,14 +87,17 @@
 <meta name="description" content="本文导航
 配置Github
 配置Hexo
+配置域名
+常用命令
 
 配置Github
-首先去GitHub官网注册一个账号
-新建与用户名一模一样的repository（仓库）
+首先去GitHub官网注册一个账号。
+新建与用户名一模一样的repository（仓库）。
 
-添加SSH公钥到Account settings -&amp;gt; SSH and GPG Keys -&amp;gt; New SSH Key
 
-设置用户名密码：12$ git config --global user.email &quot;bu.ru@qq.com&quot;">
+
+得到名字为“你的github名字.github.io”的项目。
+ 3. 添加SSH密钥，建立本地与github上的项目连接。  + 在本地右键打开Git Bash，检查是否存在SSH密钥。$ cd ~/. ssh 如果提">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo系列-（2）搭建Github静态博客">
 <meta property="og:url" content="https://aimeelee77.github.io/2016/10/17/hexo02/index.html">
@@ -102,29 +105,38 @@
 <meta property="og:description" content="本文导航
 配置Github
 配置Hexo
+配置域名
+常用命令
 
 配置Github
-首先去GitHub官网注册一个账号
-新建与用户名一模一样的repository（仓库）
+首先去GitHub官网注册一个账号。
+新建与用户名一模一样的repository（仓库）。
 
-添加SSH公钥到Account settings -&amp;gt; SSH and GPG Keys -&amp;gt; New SSH Key
 
-设置用户名密码：12$ git config --global user.email &quot;bu.ru@qq.com&quot;">
+
+得到名字为“你的github名字.github.io”的项目。
+ 3. 添加SSH密钥，建立本地与github上的项目连接。  + 在本地右键打开Git Bash，检查是否存在SSH密钥。$ cd ~/. ssh 如果提">
 <meta property="og:image" content="https://raw.githubusercontent.com/AimeeLee77/resource/master/res/hexo02_01.png">
-<meta property="og:updated_time" content="2016-10-18T01:41:31.557Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/AimeeLee77/resource/master/res/hexo02_02.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/AimeeLee77/resource/master/res/hexo02_04.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/AimeeLee77/resource/master/res/hexo02_03.png">
+<meta property="og:updated_time" content="2016-10-18T09:26:19.874Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo系列-（2）搭建Github静态博客">
 <meta name="twitter:description" content="本文导航
 配置Github
 配置Hexo
+配置域名
+常用命令
 
 配置Github
-首先去GitHub官网注册一个账号
-新建与用户名一模一样的repository（仓库）
+首先去GitHub官网注册一个账号。
+新建与用户名一模一样的repository（仓库）。
 
-添加SSH公钥到Account settings -&amp;gt; SSH and GPG Keys -&amp;gt; New SSH Key
 
-设置用户名密码：12$ git config --global user.email &quot;bu.ru@qq.com&quot;">
+
+得到名字为“你的github名字.github.io”的项目。
+ 3. 添加SSH密钥，建立本地与github上的项目连接。  + 在本地右键打开Git Bash，检查是否存在SSH密钥。$ cd ~/. ssh 如果提">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/AimeeLee77/resource/master/res/hexo02_01.png">
 
 
@@ -351,25 +363,44 @@
         <h2 id="本文导航"><a href="#本文导航" class="headerlink" title="本文导航"></a>本文导航</h2><ul>
 <li>配置Github</li>
 <li>配置Hexo</li>
+<li>配置域名</li>
+<li>常用命令</li>
 </ul>
-<h2 id="配置Github"><a href="#配置Github" class="headerlink" title="配置Github"></a>配置Github</h2><ul>
-<li>首先去<a href="https://github.com/" target="_blank" rel="external">GitHub官网</a>注册一个账号</li>
-<li><p>新建与用户名一模一样的repository（仓库）</p>
-<div align="center"><br><img src="https://raw.githubusercontent.com/AimeeLee77/resource/master/res/hexo02_01.png" alt="image"><br><br></div></li>
-<li>添加SSH公钥到Account settings -&gt; SSH and GPG Keys -&gt; New SSH Key</li>
+<h2 id="配置Github"><a href="#配置Github" class="headerlink" title="配置Github"></a>配置Github</h2><ol>
+<li>首先去<a href="https://github.com/" target="_blank" rel="external"><em>GitHub官网</em></a>注册一个账号。</li>
+<li>新建与用户名一模一样的repository（仓库）。<div align="center"><br><img src="https://raw.githubusercontent.com/AimeeLee77/resource/master/res/hexo02_01.png" alt="image"><br></div>
+
+</li>
+</ol>
+<p>得到名字为“你的github名字.github.io”的项目。</p>
+<div align="center"><br><img src="https://raw.githubusercontent.com/AimeeLee77/resource/master/res/hexo02_02.png" alt="image"><br> </div><br>3. 添加SSH密钥，建立本地与github上的项目连接。<br><br>  + 在本地右键打开Git Bash，检查是否存在SSH密钥。<br>$ cd ~/. ssh<br><br> 如果提示：No such file or directory 说明你是第一次使用git。<br><br><br>  + 设置用户名和密码。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.email <span class="string">"yourGithubEmail@qq.com"</span></div><div class="line">$ git config --global user.name <span class="string">"yourGithubName"</span></div></pre></td></tr></table></figure><br><br>  + 生成密钥。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C <span class="string">"yourGithubEmail@qq.com"</span></div></pre></td></tr></table></figure><br><br>系统会要你输入密码：<br>Enter passphrase (empty for no passphrase):&lt;输入加密串&gt; Enter same passphrase again:&lt;再次输入加密串&gt;<br>若不想设置密码，按回车即可。<br><br>  + 上述命令若执行成功，会在C:\Documents and Settings.ssh目录下生成两个文件id_rsa和id_rsa.pub。<br>  <div align="center"><br><img src="https://raw.githubusercontent.com/AimeeLee77/resource/master/res/hexo02_04.png" alt="image"><br> </div>
+
+<p>  用文本编辑器打开id_rsa.pub文件，拷贝其中的内容，添加到Github中的Account settings -&gt; SSH and GPG Keys -&gt; New SSH Key。<br> <div align="center"><br><img src="https://raw.githubusercontent.com/AimeeLee77/resource/master/res/hexo02_03.png" alt="image"><br> </div></p>
+<ul>
+<li><p>验证设置是否成功。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh -T git@github.com</div></pre></td></tr></table></figure>
+<p>如果是下面的反馈：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">The authenticity of host <span class="string">'github.com (207.97.227.239)'</span> can<span class="string">'t be established. RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48. Are you sure you want to continue connecting (yes/no)?</span></div></pre></td></tr></table></figure>
+<p>输入yes看到：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Hi yourname! You<span class="string">'ve successfully authenticated, but GitHub does not provide shell access.</span></div></pre></td></tr></table></figure>
+<p>则设置成功。</p>
+</li>
 </ul>
-<p>设置用户名密码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.email <span class="string">"bu.ru@qq.com"</span></div><div class="line">$ git config --global user.name <span class="string">"bruce-sha"</span></div></pre></td></tr></table></figure></p>
-<p>生成密钥：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C <span class="string">"bu.ru@qq.com"</span></div></pre></td></tr></table></figure></p>
-<p>上述命令若执行成功，会在H:\git\myssh目录下生成两个文件id_rsa和id_rsa.pub，最后两步：</p>
-<p>用文本编辑器打开ssh.pub文件，拷贝其中的内容，将其添加到Add SSH Key<br>将id_rsa和id_rsa.pub拷贝至你Git安装目录下的.ssh目录，如H:\PortableGit-1.8.4.ssh</p>
-<p>最后可以验证一下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh -T git@github.com</div></pre></td></tr></table></figure></p>
-<h2 id="配置Hexo"><a href="#配置Hexo" class="headerlink" title="配置Hexo"></a>配置Hexo</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo clean</div><div class="line">$ hexo d -g</div></pre></td></tr></table></figure>
-<h2 id="配置域名（可选）"><a href="#配置域名（可选）" class="headerlink" title="配置域名（可选）"></a>配置域名（可选）</h2><p>GitHubPages默认为每个用户分配了一个二级域名『your_user_name.github.com』或『your_user_name.github.io』。<br>如果你对上述域名不满意，可以到狗爹上申请一个自己的域名，然后绑定到GitHub Pages。绑定方法很简单，在repo根目录下建立一个CNAME文件，里面写上域名即可。</p>
-<p>GoDaddy<br>买域名首选狗爹，国内的服务商大家都懂的。<br>目前.info域名只要￥18.99，但据说续费比较贵，我是先玩下，一年后再换，至于搜索引擎重新索引之类的，无所谓。.me和.com域名稍微贵点，大约￥60-100，网上有很多优惠码可用，可惜有的优惠码有限制。比如有个.com域名优惠码只要$1.99，但只能用国外信用卡购买。更多优惠码可以自行谷歌或到独特优惠码找。不着急的同学可以将中意的域名加入购物车先不付款，过几天，狗爹就会发优惠信息给你。狗爹不定期也会有活动，可以多关注。<br>付款后，需要稍微等一会你才会拿到域名，特别是支付宝付款的，要等大约半小时左右。此外域名要一年年的买，这样比较划算。</p>
-<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><p>常用命令：</p>
-<p>hexo new “postName” #新建文章<br>hexo new page “pageName” #新建页面<br>hexo generate #生成静态页面至public目录<br>hexo server #开启预览访问端口（默认端口4000，’ctrl + c’关闭server）<br>hexo deploy #将.deploy目录部署到GitHub<br>常用复合命令：</p>
-<p>hexo deploy -g<br>hexo server -g<br>简写：</p>
-<p>hexo n == hexo new<br>hexo g == hexo generate<br>hexo s == hexo server<br>hexo d == hexo deploy</p>
+<h2 id="配置Hexo"><a href="#配置Hexo" class="headerlink" title="配置Hexo"></a>配置Hexo</h2><p>建立与github的关联需要配置blog目录下的_config.yml，将文件最后部分改为：</p>
+<blockquote>
+<p>deploy:<br>  type: git<br>  repository: ssh://git@github.com/aimeelee77/aimeelee77.github.io<br>  branch: master</p>
+</blockquote>
+<p>执行命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-deployer-git --save</div><div class="line">$ hexo d -g</div></pre></td></tr></table></figure></p>
+<p>浏览器中输入<em><a href="http://aimeelee77.github.io">http://aimeelee77.github.io</a></em>即可查看配置好的静态博客。</p>
+<blockquote>
+<p>每次部署github的步骤，可按以下三步来进行。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ hexo clean <span class="comment">#删除public文件夹</span></div><div class="line"></div><div class="line">$ hexo generate  <span class="comment">#生成静态页面至public目录</span></div><div class="line"></div><div class="line">$ hexo deploy <span class="comment">#部署到GitHub</span></div></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="配置域名（可选）"><a href="#配置域名（可选）" class="headerlink" title="配置域名（可选）"></a>配置域名（可选）</h2><p>GitHubPages默认为每个用户分配了一个二级域名your_user_name.github.com 或 your_user_name.github.io。<br>如果你对上述域名不满意，可以到GoDaddy或万网上申请一个自己的域名，然后绑定到GitHub Pages。绑定方法很简单，在hexo\blog\source目录下建立一个CNAME文件，里面写上域名即可。</p>
+<p>付款后，需要稍微等一会你才会拿到域名，特别是支付宝付款的，要等大约半小时左右。此外域名要一年年的买，这样比较划算。</p>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">hexo new <span class="string">"postName"</span> <span class="comment">#新建文章</span></div><div class="line">hexo new page <span class="string">"pageName"</span> <span class="comment">#新建页面</span></div><div class="line">hexo generate <span class="comment">#生成静态页面至public目录</span></div><div class="line">hexo server <span class="comment">#开启预览访问端口（默认端口4000，'ctrl + c'关闭server）</span></div><div class="line">hexo deploy <span class="comment">#将.deploy目录部署到GitHub</span></div><div class="line"></div><div class="line">常用复合命令：</div><div class="line">hexo deploy -g</div><div class="line">hexo server -g</div><div class="line"></div><div class="line">简写：</div><div class="line">hexo n == hexo new</div><div class="line">hexo g == hexo generate</div><div class="line">hexo s == hexo server</div><div class="line">hexo d == hexo deploy</div></pre></td></tr></table></figure>
+<blockquote>
+<p>参考资料：<br><a href="http://jingyan.baidu.com/article/48b37f8d09228c1a6564885b.html" target="_blank" rel="external">http://jingyan.baidu.com/article/48b37f8d09228c1a6564885b.html</a></p>
+</blockquote>
 
       
     </div>
@@ -536,7 +567,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#本文导航"><span class="nav-number">1.</span> <span class="nav-text">本文导航</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置Github"><span class="nav-number">2.</span> <span class="nav-text">配置Github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置Hexo"><span class="nav-number">3.</span> <span class="nav-text">配置Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置域名（可选）"><span class="nav-number">4.</span> <span class="nav-text">配置域名（可选）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令"><span class="nav-number">5.</span> <span class="nav-text">命令</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#本文导航"><span class="nav-number">1.</span> <span class="nav-text">本文导航</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置Github"><span class="nav-number">2.</span> <span class="nav-text">配置Github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置Hexo"><span class="nav-number">3.</span> <span class="nav-text">配置Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置域名（可选）"><span class="nav-number">4.</span> <span class="nav-text">配置域名（可选）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用命令"><span class="nav-number">5.</span> <span class="nav-text">常用命令</span></a></li></ol></div>
             
           </div>
         </section>
