@@ -84,13 +84,25 @@
 
 
 
+<meta name="description" content="Hexo官网提供了丰富的主题，使用者可根据自己的喜爱自由更换，配置起来也是非常方便。知乎中也推荐过很多优秀的主题，推荐给大家参考https://www.zhihu.com/question/24422335。
+
+我使用的就是现在最受欢迎的主题之一NexT，并以此为例。
+安装主题在本机博客目录下hexo/blog右键点击Git Bash，克隆主题到本地。1$ git clone https://g">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo系列-（3）优化Hexo">
+<meta property="og:title" content="Hexo系列-（3）Hexo更换主题">
 <meta property="og:url" content="https://aimeelee77.github.io/2016/10/17/hexo03/index.html">
 <meta property="og:site_name" content="AimeeLee的小世界">
-<meta property="og:updated_time" content="2016-10-17T09:22:29.728Z">
+<meta property="og:description" content="Hexo官网提供了丰富的主题，使用者可根据自己的喜爱自由更换，配置起来也是非常方便。知乎中也推荐过很多优秀的主题，推荐给大家参考https://www.zhihu.com/question/24422335。
+
+我使用的就是现在最受欢迎的主题之一NexT，并以此为例。
+安装主题在本机博客目录下hexo/blog右键点击Git Bash，克隆主题到本地。1$ git clone https://g">
+<meta property="og:updated_time" content="2016-10-19T02:19:11.729Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo系列-（3）优化Hexo">
+<meta name="twitter:title" content="Hexo系列-（3）Hexo更换主题">
+<meta name="twitter:description" content="Hexo官网提供了丰富的主题，使用者可根据自己的喜爱自由更换，配置起来也是非常方便。知乎中也推荐过很多优秀的主题，推荐给大家参考https://www.zhihu.com/question/24422335。
+
+我使用的就是现在最受欢迎的主题之一NexT，并以此为例。
+安装主题在本机博客目录下hexo/blog右键点击Git Bash，克隆主题到本地。1$ git clone https://g">
 
 
 
@@ -114,7 +126,7 @@
   <link rel="canonical" href="https://aimeelee77.github.io/2016/10/17/hexo03/"/>
 
 
-  <title> Hexo系列-（3）优化Hexo | AimeeLee的小世界 </title>
+  <title> Hexo系列-（3）Hexo更换主题 | AimeeLee的小世界 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -254,7 +266,7 @@
             
             
               
-                Hexo系列-（3）优化Hexo
+                Hexo系列-（3）Hexo更换主题
               
             
           </h1>
@@ -313,7 +325,41 @@
       
 
       
-        
+        <blockquote>
+<p>Hexo官网提供了丰富的主题，使用者可根据自己的喜爱自由更换，配置起来也是非常方便。<br>知乎中也推荐过很多优秀的主题，推荐给大家参考<em><a href="https://www.zhihu.com/question/24422335" target="_blank" rel="external">https://www.zhihu.com/question/24422335</a></em>。</p>
+</blockquote>
+<p>我使用的就是现在最受欢迎的主题之一<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">NexT</a>，并以此为例。</p>
+<h2 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h2><p>在本机博客目录下hexo/blog右键点击Git Bash，克隆主题到本地。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes hexo-theme-next</div></pre></td></tr></table></figure></p>
+<p>下载完成后，可以看到在themes文件夹下多出了hexo-theme-next文件夹，hexo默认的主题是landscape。</p>
+<h2 id="启动主题"><a href="#启动主题" class="headerlink" title="启动主题"></a>启动主题</h2><p>打开_config.yml文件，修改theme属性。</p>
+<blockquote>
+<p>theme: hexo-theme-next</p>
+</blockquote>
+<p>根据需要设置language为中文。</p>
+<blockquote>
+<p>language: zh-Hans</p>
+</blockquote>
+<h2 id="配置主题"><a href="#配置主题" class="headerlink" title="配置主题"></a>配置主题</h2><p>打开themes\hexo-theme-next_config.yml文件，根据自己的需要修改主题配置项。</p>
+<ul>
+<li><p>导航，若开启页面则去除前面的井号</p>
+<blockquote>
+<p>menu:<br>home: /<br>categories: /categories<br>about: /about<br>archives: /archives<br>tags: /tags<br>#commonweal: /404.html</p>
+</blockquote>
+</li>
+<li><p>主题样式</p>
+<blockquote>
+<p>#Schemes<br>#scheme: Muse<br>#scheme: Mist<br>scheme: Pisces</p>
+</blockquote>
+</li>
+<li><p>友情链接</p>
+<blockquote>
+<p>social:<br>#LinkLabel: Link<br>GitHub: <a href="https://github.com/AimeeLee77" target="_blank" rel="external">https://github.com/AimeeLee77</a></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="更新主题"><a href="#更新主题" class="headerlink" title="更新主题"></a>更新主题</h2><p>在更新主题前，最好备份原始配置文件_config.yml。修改好主题的配置项后，执行命令即可启动本地预览。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> themes/hexo-theme-next</div><div class="line">$ git pull origin master</div></pre></td></tr></table></figure></p>
+<p>主题的更换好后，可输入命令同步到Github上。</p>
+
       
     </div>
 
@@ -475,7 +521,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装主题"><span class="nav-number">1.</span> <span class="nav-text">安装主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动主题"><span class="nav-number">2.</span> <span class="nav-text">启动主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置主题"><span class="nav-number">3.</span> <span class="nav-text">配置主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新主题"><span class="nav-number">4.</span> <span class="nav-text">更新主题</span></a></li></ol></div>
             
           </div>
         </section>
