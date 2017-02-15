@@ -90,7 +90,7 @@
 <meta property="og:url" content="https://aimeelee77.github.io/2017/02/14/diary02/index.html">
 <meta property="og:site_name" content="AimeeLee的小世界">
 <meta property="og:description" content="Day7： 201702131、今天是农历年放假后上班的第一天，这个长假好好的休息了一把，要快速收心开始着手为自己的目标而努力了。今年的目标非常明确–英语和文章，都是上半年需要完成的目标，工作的事情特别多，所以留给自己的时间有限。每天努力一点点，相信自己能够达成目标和理想！2、今天下载了写关于CNN的论文，感觉这块大有写头以及研究的价值，而Python语言也能应用其中，可谓一举两得。目前重新调整了">
-<meta property="og:updated_time" content="2017-02-14T01:50:08.066Z">
+<meta property="og:updated_time" content="2017-02-15T03:35:21.010Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="成功日记2月">
 <meta name="twitter:description" content="Day7： 201702131、今天是农历年放假后上班的第一天，这个长假好好的休息了一把，要快速收心开始着手为自己的目标而努力了。今年的目标非常明确–英语和文章，都是上半年需要完成的目标，工作的事情特别多，所以留给自己的时间有限。每天努力一点点，相信自己能够达成目标和理想！2、今天下载了写关于CNN的论文，感觉这块大有写头以及研究的价值，而Python语言也能应用其中，可谓一举两得。目前重新调整了">
@@ -317,6 +317,9 @@
 
       
         <h2 id="Day7：-20170213"><a href="#Day7：-20170213" class="headerlink" title="Day7： 20170213"></a>Day7： 20170213</h2><p>1、今天是农历年放假后上班的第一天，这个长假好好的休息了一把，要快速收心开始着手为自己的目标而努力了。今年的目标非常明确–英语和文章，都是上半年需要完成的目标，工作的事情特别多，所以留给自己的时间有限。每天努力一点点，相信自己能够达成目标和理想！<br>2、今天下载了写关于CNN的论文，感觉这块大有写头以及研究的价值，而Python语言也能应用其中，可谓一举两得。目前重新调整了文章的方向和思路，仍然在学习和资料收集的阶段，这个过程漫长而枯燥，希望自己能够不忘初心继续前进，能够取得成果。<br>3、想要学习一门语言和学科，还是得从实践出发，理论看了一些仍然云里雾里。目前，选中了自然语言处理中的情感分析方向为切入口，对CNN和Python进行深入学习和技能实践。根据论文描述，学习过程为：京东商品用户评论数据集（包括正负样本）-10折交叉验证划分数据集-数据预处理（过滤标点符号和特殊字符，格式转换，分词处理，训练word embedding）-模型训练。今天确定了学习思路和方法，明日开始着手第一步的实践，即使用Python语言抓取京东商品用户评论，依次进行，逐步实现。</p>
+<h2 id="Day8：-20170214"><a href="#Day8：-20170214" class="headerlink" title="Day8： 20170214"></a>Day8： 20170214</h2><p>1、今天主要在研究python对网页数据的采集–以京东商品评论为例，并实现了简易数据的采集。<br>2、在学习中了解到，除了python自带的模块外还需要使用第三方模块，而且python有丰富的第三方模块，可以极高的提升开发效率。下载第三方模块就需要使用到python包管理工具，python自带的管理工具为easy_install，目前常用的为pip，可完全取代easy_install。第三方python包的安装方法非常简单，在pip的目录下打开cmd,输入命令“pip install packagename”即可。<br>3、在采集方面，beautifulSoup4和requests是应用于采集的python包，二者使用easy_install或者pip安装即可。requests是python的一个HTTP客户端库，与urllib、urllib2类似，代码却简单的多。beautifulSoup是用于解析HTML/XML的python包，可以很好的处理不规范标记并生成剖析树，它提供简单又常用的导航、搜索以及修改剖析树的操作，大大节省编程时间。<br>4、今天解决了使用mysql语句获取间隔时间的问题，即库中记录的时间戳与当前时间的间隔。timediff函数用于获取间隔时间，格式为111：00：00(即时：分：秒)；datediff函数用户获取间隔天数。具体实现代码为：</p>
+<pre><code class="bash">timediff(now(),FROM_UNIXTIME(add_time,<span class="string">'%Y-%m-%d %H:%i'</span>)) AS gapHour
+</code></pre>
 
       
     </div>
@@ -479,7 +482,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Day7：-20170213"><span class="nav-number">1.</span> <span class="nav-text">Day7： 20170213</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Day7：-20170213"><span class="nav-number">1.</span> <span class="nav-text">Day7： 20170213</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day8：-20170214"><span class="nav-number">2.</span> <span class="nav-text">Day8： 20170214</span></a></li></ol></div>
             
           </div>
         </section>
