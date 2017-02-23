@@ -90,7 +90,7 @@
 <meta property="og:url" content="https://aimeelee77.github.io/2017/02/14/diary02/index.html">
 <meta property="og:site_name" content="AimeeLee的小世界">
 <meta property="og:description" content="Day7： 201702131、今天是农历年放假后上班的第一天，这个长假好好的休息了一把，要快速收心开始着手为自己的目标而努力了。今年的目标非常明确–英语和文章，都是上半年需要完成的目标，工作的事情特别多，所以留给自己的时间有限。每天努力一点点，相信自己能够达成目标和理想！2、今天下载了写关于CNN的论文，感觉这块大有写头以及研究的价值，而Python语言也能应用其中，可谓一举两得。目前重新调整了">
-<meta property="og:updated_time" content="2017-02-22T01:52:52.970Z">
+<meta property="og:updated_time" content="2017-02-23T01:19:08.825Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="成功日记2月">
 <meta name="twitter:description" content="Day7： 201702131、今天是农历年放假后上班的第一天，这个长假好好的休息了一把，要快速收心开始着手为自己的目标而努力了。今年的目标非常明确–英语和文章，都是上半年需要完成的目标，工作的事情特别多，所以留给自己的时间有限。每天努力一点点，相信自己能够达成目标和理想！2、今天下载了写关于CNN的论文，感觉这块大有写头以及研究的价值，而Python语言也能应用其中，可谓一举两得。目前重新调整了">
@@ -332,6 +332,26 @@ import pandas as pd
 <pre><code class="bash">comments = content[<span class="string">'content'</span>]
 </code></pre>
 <p>2、今天晚上用半个小时学习了NLP第三章数据处理其中的正则表达式，即如何用正则过滤字符串并进行分词，前几章内容只是基本的技术介绍。<br>3、花费了半个小时阅读英文文章两页，虽然还是有许多不认识的单词和表达方式，但是在理解上增强了一丢丢。在阅读的过程中发现，可能本书的主人翁对话的对象是孩子，所以对话内容都能看懂，而叙述部分有许多生僻单词。</p>
+<h2 id="Day11：-20170222"><a href="#Day11：-20170222" class="headerlink" title="Day11： 20170222"></a>Day11： 20170222</h2><p>1、使用pandas和stirng包实现字符串的处理。</p>
+<pre><code class="bash">line = line.rstrip() <span class="comment">#去除文本后的'\n'</span>
+intab = <span class="string">""</span>
+outtab = <span class="string">""</span>
+trantab = string.maketrans(intab, outtab)
+pun_num = string.punctuation + string.digits
+line = line.encode(<span class="string">'utf-8'</span>)
+line = line.translate(trantab,pun_num)
+</code></pre>
+<p>Python maketrans() 方法用于创建字符映射的转换表，对于接受两个参数的最简单的调用方式，第一个参数是字符串，表示需要转换的字符，第二个参数也是字符串表示转换的目标。<br>注：两个字符串的长度必须相同，为一一对应的关系。然后可以使用translate()方法来使用。</p>
+<p>String模块中的常量：<br>string.digits：数字0~9<br>string.letters：所有字母（大小写）<br>string.lowercase：所有小写字母<br>string.printable：可打印字符的字符串<br>string.punctuation：所有标点<br>string.uppercase：所有大写字母</p>
+<p>去除中英文标点符号如下：<br>line = line.decode(‘utf-8’)</p>
+<pre><code class="bash">line = re.sub(<span class="string">"[\s+\.\!\/_,$%^*(+\"\']+|[+——！，。？?、~@#￥%……&amp;*（）]+"</span>.decode(<span class="string">"utf8"</span>), <span class="string">""</span>.decode(<span class="string">"utf8"</span>),line) <span class="comment">#去除文本中的中文符号和英文符号</span>
+</code></pre>
+<p>2、今天完成了Python自然语言处理第三章内容的阅读，只是有了大致的印象，待完成全部内容的阅读后还需要定向的重复学习部分章节知识点。<br>3、MARVA COLLINS’ WAY是关于讲教育的书，因此有很多积极的教育理念和方法，把觉得说的很好的话摘录下来：</p>
+<ul>
+<li>If you don’t give anything, don’t expect anything.Success is not coming to you, you must come to it.</li>
+<li>Don’t ever be afraid of making a mistake. If you can’t make a mistake, you can’t make anything.</li>
+<li>You must always read the author’s name.If you like what an author writes, but you don’t know the author’s name, then you won’t be able to find any more of his stories to read.</li>
+</ul>
 
       
     </div>
@@ -494,7 +514,7 @@ import pandas as pd
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Day7：-20170213"><span class="nav-number">1.</span> <span class="nav-text">Day7： 20170213</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day8：-20170214"><span class="nav-number">2.</span> <span class="nav-text">Day8： 20170214</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day9：-20170220"><span class="nav-number">3.</span> <span class="nav-text">Day9： 20170220</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day10：-20170221"><span class="nav-number">4.</span> <span class="nav-text">Day10： 20170221</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Day7：-20170213"><span class="nav-number">1.</span> <span class="nav-text">Day7： 20170213</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day8：-20170214"><span class="nav-number">2.</span> <span class="nav-text">Day8： 20170214</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day9：-20170220"><span class="nav-number">3.</span> <span class="nav-text">Day9： 20170220</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day10：-20170221"><span class="nav-number">4.</span> <span class="nav-text">Day10： 20170221</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day11：-20170222"><span class="nav-number">5.</span> <span class="nav-text">Day11： 20170222</span></a></li></ol></div>
             
           </div>
         </section>
