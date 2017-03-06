@@ -90,7 +90,7 @@
 <meta property="og:url" content="https://aimeelee77.github.io/2017/03/01/diary03/index.html">
 <meta property="og:site_name" content="AimeeLee的小世界">
 <meta property="og:description" content="Day17： 201703011、今天做了第一课和第二课的作业，第二课的还没有全部完成，明晚继续。还需要过一遍SQL语句，认真学习统计基础部分。2、又发现了一种很好的锻炼讲故事能力、思维连续性和记忆能力的方式，即把阅读完的书用白话的方式记录成文字，待积累一定的量之后回看并修改，如此反复，不仅能关注到故事的细节加深记忆还能联系表达能力。以前都没有尝试过这种方式，感觉只能记录下来才能让我记在大脑中。">
-<meta property="og:updated_time" content="2017-03-03T01:18:59.772Z">
+<meta property="og:updated_time" content="2017-03-06T01:04:23.485Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="成功日记3月">
 <meta name="twitter:description" content="Day17： 201703011、今天做了第一课和第二课的作业，第二课的还没有全部完成，明晚继续。还需要过一遍SQL语句，认真学习统计基础部分。2、又发现了一种很好的锻炼讲故事能力、思维连续性和记忆能力的方式，即把阅读完的书用白话的方式记录成文字，待积累一定的量之后回看并修改，如此反复，不仅能关注到故事的细节加深记忆还能联系表达能力。以前都没有尝试过这种方式，感觉只能记录下来才能让我记在大脑中。">
@@ -318,7 +318,36 @@
       
         <h2 id="Day17：-20170301"><a href="#Day17：-20170301" class="headerlink" title="Day17： 20170301"></a>Day17： 20170301</h2><p>1、今天做了第一课和第二课的作业，第二课的还没有全部完成，明晚继续。还需要过一遍SQL语句，认真学习统计基础部分。<br>2、又发现了一种很好的锻炼讲故事能力、思维连续性和记忆能力的方式，即把阅读完的书用白话的方式记录成文字，待积累一定的量之后回看并修改，如此反复，不仅能关注到故事的细节加深记忆还能联系表达能力。以前都没有尝试过这种方式，感觉只能记录下来才能让我记在大脑中。</p>
 <h2 id="Day18：-20170302"><a href="#Day18：-20170302" class="headerlink" title="Day18： 20170302"></a>Day18： 20170302</h2><p>1、完成了SQL和统计基础部分的学习，了解了查看统计图的方法。确定统计图可以通过位置和离散程度两大因素确定，其中曲线位置可以根据均值、中位数、众数来确定，离散程度可以根据峰度、偏度、百分位数来确定。<br>2、最近，在对新媒体的研究过程中学习到了推荐算法，推荐算法大致分为三类：基于内容的推荐算法、协同过滤推荐算法和基于知识的推荐算法。<br>基于内容的推荐算法主要用于资讯类，原理是用户喜欢和关注的Item在内容上与之有关联性的推荐给用户，可以避免冷启动的问题，弊端是可能会重复推荐。<br>协同过滤推荐算法主要用于电商类，原理是把具有相似兴趣用户喜欢过的商品推荐给用户；还有一种是基于Item的协同过滤算法。这两种方法都是将用户的所有数据读入到内存中进行运算。<br>基于知识的推荐算法主要用于广告行业，原理是构建领域本体或者建立一定的规则，进行推荐。</p>
+<h2 id="Day19：-20170305"><a href="#Day19：-20170305" class="headerlink" title="Day19： 20170305"></a>Day19： 20170305</h2><p>1、周末学习了R中的分组统计语句和统计学中的参数估计与假设检验。在R中，如果是非常复杂的数据处理，可以用多个语句执行，非常方便。此次学习的统计内容，主要分为描述性统计和统计预测两大分支，因为私事落了一天课程，这个礼拜任务很重，要坚持弄明白。<br>2、正好项目上需要写个统计关键词的脚本，就拿python来实现练练手。周五实现了python连接mysql数据库的功能，使用到的类库是MySQLdb。具体实现代码如下：<br>    import MySQLdb as mdb</p>
+<pre><code>try:
+    conn = mdb.connect(
+            host=&apos;127.0.0.1&apos;,
+            port = 3306,
+            user=&apos;user01&apos;,
+            passwd=&apos;password01&apos;,
+            db =&apos;db01&apos;,
+            charset=&apos;utf8&apos;
+            )
+except:
+    print &quot;Could not connect to MySQL server.&quot;
+    exit(0)
 
+try:
+    cursor = conn.cursor()
+    TABLE_NAME = &apos;zk_article&apos;
+    count = cursor.execute(&apos;SELECT keywords FROM %s WHERE is_open = 1&apos; %TABLE_NAME) #执行结果count是返回记录数
+    results = cursor.fetchall() #获取返回数据集
+    results = list(results) #数据集处理
+    for row in results:
+        kw_str = (&apos;%s&apos; % row)
+        print kw_str
+except:
+    import traceback
+    traceback.print_exc()
+finally:
+    cursor.close()
+    conn.close()
+</code></pre>
       
     </div>
 
@@ -484,7 +513,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Day17：-20170301"><span class="nav-number">1.</span> <span class="nav-text">Day17： 20170301</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day18：-20170302"><span class="nav-number">2.</span> <span class="nav-text">Day18： 20170302</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Day17：-20170301"><span class="nav-number">1.</span> <span class="nav-text">Day17： 20170301</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day18：-20170302"><span class="nav-number">2.</span> <span class="nav-text">Day18： 20170302</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day19：-20170305"><span class="nav-number">3.</span> <span class="nav-text">Day19： 20170305</span></a></li></ol></div>
             
           </div>
         </section>
