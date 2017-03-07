@@ -90,7 +90,7 @@
 <meta property="og:url" content="https://aimeelee77.github.io/2017/03/01/diary03/index.html">
 <meta property="og:site_name" content="AimeeLee的小世界">
 <meta property="og:description" content="Day17： 201703011、今天做了第一课和第二课的作业，第二课的还没有全部完成，明晚继续。还需要过一遍SQL语句，认真学习统计基础部分。2、又发现了一种很好的锻炼讲故事能力、思维连续性和记忆能力的方式，即把阅读完的书用白话的方式记录成文字，待积累一定的量之后回看并修改，如此反复，不仅能关注到故事的细节加深记忆还能联系表达能力。以前都没有尝试过这种方式，感觉只能记录下来才能让我记在大脑中。">
-<meta property="og:updated_time" content="2017-03-06T01:07:11.552Z">
+<meta property="og:updated_time" content="2017-03-07T01:25:09.803Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="成功日记3月">
 <meta name="twitter:description" content="Day17： 201703011、今天做了第一课和第二课的作业，第二课的还没有全部完成，明晚继续。还需要过一遍SQL语句，认真学习统计基础部分。2、又发现了一种很好的锻炼讲故事能力、思维连续性和记忆能力的方式，即把阅读完的书用白话的方式记录成文字，待积累一定的量之后回看并修改，如此反复，不仅能关注到故事的细节加深记忆还能联系表达能力。以前都没有尝试过这种方式，感觉只能记录下来才能让我记在大脑中。">
@@ -349,7 +349,19 @@ except:
 finally:
     cursor.close()
     conn.close()
-</code></pre>
+</code></pre><h2 id="Day20：-20170306"><a href="#Day20：-20170306" class="headerlink" title="Day20： 20170306"></a>Day20： 20170306</h2><p>1、今天完成了Python统计文章关键词的脚本。流程是：从文件中读取最后一次处理文章的ID；设置循环记录条数；从数据库中读取增量文章记录；处理关键词并计数；依次遍历关键词，若关键词表中存在则放入更新列表中，若不存在则放入新增列表中；数据库批量执行更新、插入操作；休眠后再循环；循环结束后，将最后一个处理记录ID写入文件中。<br>读取文件中记录的ID代码：</p>
+<pre><code>txt_id = 0
+file_obj = open(&apos;bak.txt&apos;)
+try:
+    txt_id = file_obj.read()    
+finally:
+    file_obj.close()
+</code></pre><p>写入文件代码：</p>
+<pre><code>file_obj = open(&apos;bak.txt&apos;, &apos;w&apos;)
+file_obj.writelines(str(last_id))
+file_obj.close( )
+</code></pre><p>另，python连接字符串时必须是字符型不能是数值型，如果是其他类型需要使用str()函数转换成字符型。<br>2、因为教学视频太大，下载很慢，晚上阅读了下参数检验部分的内容，虽然还是有难度，还是可以似懂非懂的。而假设检验部分却完全摸不着头脑，需要先听老师的课程，但是记下了老师总结的表格，即分类变量（名义变量和等级变量）和分类变量使用列联表分析方法；分类变量和连续变量，如果是二分类使用两样本T检验，如果是多分类使用方差分析；连续变量和连续变量，使用相关分析。</p>
+
       
     </div>
 
@@ -515,7 +527,7 @@ finally:
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Day17：-20170301"><span class="nav-number">1.</span> <span class="nav-text">Day17： 20170301</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day18：-20170302"><span class="nav-number">2.</span> <span class="nav-text">Day18： 20170302</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day19：-20170305"><span class="nav-number">3.</span> <span class="nav-text">Day19： 20170305</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Day17：-20170301"><span class="nav-number">1.</span> <span class="nav-text">Day17： 20170301</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day18：-20170302"><span class="nav-number">2.</span> <span class="nav-text">Day18： 20170302</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day19：-20170305"><span class="nav-number">3.</span> <span class="nav-text">Day19： 20170305</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day20：-20170306"><span class="nav-number">4.</span> <span class="nav-text">Day20： 20170306</span></a></li></ol></div>
             
           </div>
         </section>
