@@ -90,7 +90,7 @@
 <meta property="og:url" content="https://aimeelee77.github.io/2017/03/01/diary03/index.html">
 <meta property="og:site_name" content="AimeeLee的小世界">
 <meta property="og:description" content="Day17： 201703011、今天做了第一课和第二课的作业，第二课的还没有全部完成，明晚继续。还需要过一遍SQL语句，认真学习统计基础部分。2、又发现了一种很好的锻炼讲故事能力、思维连续性和记忆能力的方式，即把阅读完的书用白话的方式记录成文字，待积累一定的量之后回看并修改，如此反复，不仅能关注到故事的细节加深记忆还能联系表达能力。以前都没有尝试过这种方式，感觉只能记录下来才能让我记在大脑中。">
-<meta property="og:updated_time" content="2017-03-07T01:25:09.803Z">
+<meta property="og:updated_time" content="2017-03-09T01:03:07.926Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="成功日记3月">
 <meta name="twitter:description" content="Day17： 201703011、今天做了第一课和第二课的作业，第二课的还没有全部完成，明晚继续。还需要过一遍SQL语句，认真学习统计基础部分。2、又发现了一种很好的锻炼讲故事能力、思维连续性和记忆能力的方式，即把阅读完的书用白话的方式记录成文字，待积累一定的量之后回看并修改，如此反复，不仅能关注到故事的细节加深记忆还能联系表达能力。以前都没有尝试过这种方式，感觉只能记录下来才能让我记在大脑中。">
@@ -361,7 +361,13 @@ finally:
 file_obj.writelines(str(last_id))
 file_obj.close( )
 </code></pre><p>另，python连接字符串时必须是字符型不能是数值型，如果是其他类型需要使用str()函数转换成字符型。<br>2、因为教学视频太大，下载很慢，晚上阅读了下参数检验部分的内容，虽然还是有难度，还是可以似懂非懂的。而假设检验部分却完全摸不着头脑，需要先听老师的课程，但是记下了老师总结的表格，即分类变量（名义变量和等级变量）和分类变量使用列联表分析方法；分类变量和连续变量，如果是二分类使用两样本T检验，如果是多分类使用方差分析；连续变量和连续变量，使用相关分析。</p>
+<h2 id="Day21：-20170307"><a href="#Day21：-20170307" class="headerlink" title="Day21： 20170307"></a>Day21： 20170307</h2><p>1、今天通过研究实现了在本地把python文件打包成exe可执行文件的方法，将可执行文件直接放置在服务器上使得服务器无需安装python环境就可以执行python程序，并使用系统自带的定时任务功能实现定时执行。本次实现的方法是下载<a href="http://www.pyinstaller.org/" target="_blank" rel="external">pyInstaller</a>,下载对应版本解压到任意目录；安装pywin32（pip install pywin32）；如果还报错安装future（pip install future）;在pyinstaller文件夹中执行已经编写好的脚本命，可用一句命令打包：</p>
+<pre><code>pyinstaller -F -w -i manage.ico app.py
 
+-F：打包为单文件
+-w：Windows程序，不显示命令行窗口
+-i：是程序图标，app.py是你要打包的py文件
+</code></pre>
       
     </div>
 
@@ -527,7 +533,7 @@ file_obj.close( )
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Day17：-20170301"><span class="nav-number">1.</span> <span class="nav-text">Day17： 20170301</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day18：-20170302"><span class="nav-number">2.</span> <span class="nav-text">Day18： 20170302</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day19：-20170305"><span class="nav-number">3.</span> <span class="nav-text">Day19： 20170305</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day20：-20170306"><span class="nav-number">4.</span> <span class="nav-text">Day20： 20170306</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Day17：-20170301"><span class="nav-number">1.</span> <span class="nav-text">Day17： 20170301</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day18：-20170302"><span class="nav-number">2.</span> <span class="nav-text">Day18： 20170302</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day19：-20170305"><span class="nav-number">3.</span> <span class="nav-text">Day19： 20170305</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day20：-20170306"><span class="nav-number">4.</span> <span class="nav-text">Day20： 20170306</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day21：-20170307"><span class="nav-number">5.</span> <span class="nav-text">Day21： 20170307</span></a></li></ol></div>
             
           </div>
         </section>
