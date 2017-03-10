@@ -90,7 +90,7 @@
 <meta property="og:url" content="https://aimeelee77.github.io/2017/03/01/diary03/index.html">
 <meta property="og:site_name" content="AimeeLee的小世界">
 <meta property="og:description" content="Day17： 201703011、今天做了第一课和第二课的作业，第二课的还没有全部完成，明晚继续。还需要过一遍SQL语句，认真学习统计基础部分。2、又发现了一种很好的锻炼讲故事能力、思维连续性和记忆能力的方式，即把阅读完的书用白话的方式记录成文字，待积累一定的量之后回看并修改，如此反复，不仅能关注到故事的细节加深记忆还能联系表达能力。以前都没有尝试过这种方式，感觉只能记录下来才能让我记在大脑中。">
-<meta property="og:updated_time" content="2017-03-09T01:03:07.926Z">
+<meta property="og:updated_time" content="2017-03-10T01:57:23.363Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="成功日记3月">
 <meta name="twitter:description" content="Day17： 201703011、今天做了第一课和第二课的作业，第二课的还没有全部完成，明晚继续。还需要过一遍SQL语句，认真学习统计基础部分。2、又发现了一种很好的锻炼讲故事能力、思维连续性和记忆能力的方式，即把阅读完的书用白话的方式记录成文字，待积累一定的量之后回看并修改，如此反复，不仅能关注到故事的细节加深记忆还能联系表达能力。以前都没有尝试过这种方式，感觉只能记录下来才能让我记在大脑中。">
@@ -367,7 +367,31 @@ file_obj.close( )
 -F：打包为单文件
 -w：Windows程序，不显示命令行窗口
 -i：是程序图标，app.py是你要打包的py文件
-</code></pre>
+</code></pre><h2 id="Day22-20170309"><a href="#Day22-20170309" class="headerlink" title="Day22: 20170309"></a>Day22: 20170309</h2><p>1、今天学习了python的多线程基础内容。python提供实现多线程的模块之一是threading，使用最优。具体实现代码如下：<br>    import threading </p>
+<pre><code>threads=[]
+t1=threading.Thread(target=,args=)
+threads.append(t1)
+t2=threading.Thread(target=,args=)
+threads.append(t2)
+
+if __name__=&apos;__main__&apos;:
+    for t in threads:
+        t.setDaemon(True)
+        t.start()
+    t.join
+</code></pre><blockquote>
+<p>t.setDaemon(True) 表示后台进程，默认为False即前台进程。意思是当主线程执行完后，不等待子线程，直接退出，同时子线程也一同结束。</p>
+<p>t.join 表示等待线程终止，必须等待for循环中的2个线程都结束后，才执行主进程。<br>这个只是多线程入门的概念，还有许多其他的内容，待慢慢学习深入了解。</p>
+</blockquote>
+<p>2、之前情感分类问题只研究实现了数据的采集、分词处理两个内容，今天花了一下午的时间研究文本特征提取和表示的方法。</p>
+<blockquote>
+<p>文本使用word embedding方法来表达，即文本把每个不同的词都用一个对应的向量（往往是低维向量）来表示，则同义词可以通过计算cos距离下最相似的向量来得到；</p>
+<p>google提供了word2vec工具包，包含几种word embedding的方法来实现文本特征的表示；</p>
+<p>2013年的word2vec工具包包含了CBOW和Skip-gram这两个模型来得到词向量。不带加速的CBOW模型是一个两层结构，通过上下文来预测中心词；不带加速的Skip-gram模型和CBOW模型和相似，二者都是通过上下文来预测中心，区别在于CBOW模型把上下文的2m个词向量求平均值揉成一个向量然后作为输入预测中心词，而Skip-gram模型则是把上下文的2m个词向量依次作为输入预测中心词。</p>
+<p>gensim是实现word2vec的python包，依次安装numpy、scipy、gensim即可，若前两者使用pip安装失败则直接下载对应的exe安装，顺序不能弄错。</p>
+</blockquote>
+<p>今天搞清楚了文本特征表示的基本方法和流程，并安装好了开发环境，为明天的代码实现做准备。</p>
+
       
     </div>
 
@@ -533,7 +557,7 @@ file_obj.close( )
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Day17：-20170301"><span class="nav-number">1.</span> <span class="nav-text">Day17： 20170301</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day18：-20170302"><span class="nav-number">2.</span> <span class="nav-text">Day18： 20170302</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day19：-20170305"><span class="nav-number">3.</span> <span class="nav-text">Day19： 20170305</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day20：-20170306"><span class="nav-number">4.</span> <span class="nav-text">Day20： 20170306</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day21：-20170307"><span class="nav-number">5.</span> <span class="nav-text">Day21： 20170307</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Day17：-20170301"><span class="nav-number">1.</span> <span class="nav-text">Day17： 20170301</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day18：-20170302"><span class="nav-number">2.</span> <span class="nav-text">Day18： 20170302</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day19：-20170305"><span class="nav-number">3.</span> <span class="nav-text">Day19： 20170305</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day20：-20170306"><span class="nav-number">4.</span> <span class="nav-text">Day20： 20170306</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day21：-20170307"><span class="nav-number">5.</span> <span class="nav-text">Day21： 20170307</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day22-20170309"><span class="nav-number">6.</span> <span class="nav-text">Day22: 20170309</span></a></li></ol></div>
             
           </div>
         </section>
