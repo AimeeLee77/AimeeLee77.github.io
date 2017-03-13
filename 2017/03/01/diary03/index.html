@@ -90,7 +90,7 @@
 <meta property="og:url" content="https://aimeelee77.github.io/2017/03/01/diary03/index.html">
 <meta property="og:site_name" content="AimeeLee的小世界">
 <meta property="og:description" content="Day17： 201703011、今天做了第一课和第二课的作业，第二课的还没有全部完成，明晚继续。还需要过一遍SQL语句，认真学习统计基础部分。2、又发现了一种很好的锻炼讲故事能力、思维连续性和记忆能力的方式，即把阅读完的书用白话的方式记录成文字，待积累一定的量之后回看并修改，如此反复，不仅能关注到故事的细节加深记忆还能联系表达能力。以前都没有尝试过这种方式，感觉只能记录下来才能让我记在大脑中。">
-<meta property="og:updated_time" content="2017-03-10T01:57:23.363Z">
+<meta property="og:updated_time" content="2017-03-13T02:32:04.094Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="成功日记3月">
 <meta name="twitter:description" content="Day17： 201703011、今天做了第一课和第二课的作业，第二课的还没有全部完成，明晚继续。还需要过一遍SQL语句，认真学习统计基础部分。2、又发现了一种很好的锻炼讲故事能力、思维连续性和记忆能力的方式，即把阅读完的书用白话的方式记录成文字，待积累一定的量之后回看并修改，如此反复，不仅能关注到故事的细节加深记忆还能联系表达能力。以前都没有尝试过这种方式，感觉只能记录下来才能让我记在大脑中。">
@@ -367,7 +367,7 @@ file_obj.close( )
 -F：打包为单文件
 -w：Windows程序，不显示命令行窗口
 -i：是程序图标，app.py是你要打包的py文件
-</code></pre><h2 id="Day22-20170309"><a href="#Day22-20170309" class="headerlink" title="Day22: 20170309"></a>Day22: 20170309</h2><p>1、今天学习了python的多线程基础内容。python提供实现多线程的模块之一是threading，使用最优。具体实现代码如下：<br>    import threading </p>
+</code></pre><h2 id="Day22-20170309"><a href="#Day22-20170309" class="headerlink" title="Day22:  20170309"></a>Day22:  20170309</h2><p>1、今天学习了python的多线程基础内容。python提供实现多线程的模块之一是threading，使用最优。具体实现代码如下：<br>    import threading </p>
 <pre><code>threads=[]
 t1=threading.Thread(target=,args=)
 threads.append(t1)
@@ -391,6 +391,69 @@ if __name__=&apos;__main__&apos;:
 <p>gensim是实现word2vec的python包，依次安装numpy、scipy、gensim即可，若前两者使用pip安装失败则直接下载对应的exe安装，顺序不能弄错。</p>
 </blockquote>
 <p>今天搞清楚了文本特征表示的基本方法和流程，并安装好了开发环境，为明天的代码实现做准备。</p>
+<h2 id="Day23-20170310"><a href="#Day23-20170310" class="headerlink" title="Day23: 20170310"></a>Day23: 20170310</h2><p>1、在昨天的理论学习基础上，今天用python实现了word2vec训练模型，完成对词的表达。具体实现代码如下：</p>
+<pre><code># 忽略警告
+import warnings
+warnings.filterwarnings(action=&apos;ignore&apos;, category=UserWarning, module=&apos;gensim&apos;)
+# 引入 word2vec
+from gensim.models import Word2Vec
+from gensim.models.word2vec import LineSentence
+import multiprocessing
+# 引入日志配置
+import logging,os
+
+if __name__ == &apos;__main__&apos;:
+    logging.basicConfig(format=&apos;%(asctime)s : %(levelname)s : %(message)s&apos;, level=logging.INFO)
+
+    # inp为输入语料
+    inp = &apos;jd_cmts_data.txt&apos;
+    # outp1 为输出模型
+    outp1 = &apos;jd_cmts_data.text.model&apos;
+    # outp2为原始c版本word2vec的vector格式的模型
+    outp2 = &apos;jd_cmts_data.text.vector&apos;
+
+    # 训练skip-gram模型
+    sentences = LineSentence(inp)
+    model = Word2Vec(sentences, size=200, window=5, min_count=5,
+                 workers=multiprocessing.cpu_count()-4)
+
+    # 模型预测
+    # 计算两个词的相似度/相关程度
+    y1 = model.similarity(u&quot;不错&quot;, u&quot;好&quot;)
+    print u&quot;【不错】和【好】的相似度为：&quot;, y1
+    print &quot;--------\n&quot;
+
+    # 计算某个词的相关词列表
+    y2 = model.most_similar(u&quot;书&quot;, topn=20)  # 20个最相关的
+    print u&quot;和【书】最相关的词有：\n&quot;
+    for item in y2:
+        print item[0], item[1]
+    print &quot;--------\n&quot;
+
+    # 寻找对应关系
+    print u&quot;书-不错，质量-&quot;
+    y3 = model.most_similar([u&apos;质量&apos;, u&apos;不错&apos;], [u&apos;书&apos;], topn=3)
+    for item in y3:
+        print item[0], item[1]
+    print &quot;--------\n&quot;
+
+    # 寻找不合群的词
+    y4 = model.doesnt_match(u&quot;书 书籍 教材 很&quot;.split())
+    print u&quot;不合群的词：&quot;, y4
+    print &quot;--------\n&quot;
+
+
+    # 保存模型
+    model.save(outp1)
+    # 对应的加载方式
+    # model_2 = Word2Vec.load(&quot;text8.model&quot;)
+
+    # 以一种C语言可以解析的形式存储词向量
+    model.wv.save_word2vec_format(outp2, binary=False)
+    # 对应的加载方式
+    # model_3 = Word2Vec.load_word2vec_format(&quot;text8.model.bin&quot;, binary=True)
+</code></pre><p>在运行过程中碰到了提示中文‘utf-8’格式的错误，代码层面研究了很久都没有解决，最后尝试着吧中文文档转成“utf8”编码格式就可以了，囧！<br>感觉自己离NLP又进了一步，还是很有成就感的，继续坚持，努力加油。</p>
+<h2 id="Day24-20170312"><a href="#Day24-20170312" class="headerlink" title="Day24: 20170312"></a>Day24: 20170312</h2><p>1、周末学习了一天班的课程，把基础的统计分析方法都讲完了，感觉自己都没有消化，作业也都落下了。。。这周必须要努努力，好好把之前的内容都学习消化一遍，该记忆的概念记下来，该背的公式花时间背，让最后一次课程上起来更轻松。</p>
 
       
     </div>
@@ -500,7 +563,7 @@ if __name__=&apos;__main__&apos;:
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -557,7 +620,7 @@ if __name__=&apos;__main__&apos;:
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Day17：-20170301"><span class="nav-number">1.</span> <span class="nav-text">Day17： 20170301</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day18：-20170302"><span class="nav-number">2.</span> <span class="nav-text">Day18： 20170302</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day19：-20170305"><span class="nav-number">3.</span> <span class="nav-text">Day19： 20170305</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day20：-20170306"><span class="nav-number">4.</span> <span class="nav-text">Day20： 20170306</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day21：-20170307"><span class="nav-number">5.</span> <span class="nav-text">Day21： 20170307</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day22-20170309"><span class="nav-number">6.</span> <span class="nav-text">Day22: 20170309</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Day17：-20170301"><span class="nav-number">1.</span> <span class="nav-text">Day17： 20170301</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day18：-20170302"><span class="nav-number">2.</span> <span class="nav-text">Day18： 20170302</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day19：-20170305"><span class="nav-number">3.</span> <span class="nav-text">Day19： 20170305</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day20：-20170306"><span class="nav-number">4.</span> <span class="nav-text">Day20： 20170306</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day21：-20170307"><span class="nav-number">5.</span> <span class="nav-text">Day21： 20170307</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day22-20170309"><span class="nav-number">6.</span> <span class="nav-text">Day22:  20170309</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day23-20170310"><span class="nav-number">7.</span> <span class="nav-text">Day23: 20170310</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day24-20170312"><span class="nav-number">8.</span> <span class="nav-text">Day24: 20170312</span></a></li></ol></div>
             
           </div>
         </section>
