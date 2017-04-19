@@ -96,7 +96,7 @@
 
 1）清洗标题，去除副标题。去除了标题中存在的’&amp;nbsp;’字符串和前后空格，认为标题中空格数超过10的则包含副标题，选择最后一个空格删除其后的字符串，并以此循环。
 2）匹配正文关键词。若文章正文中包含某些指定关键词，则确定为分类内容。文档正文存储在mongodb中，可能存在为空的情况，因此">
-<meta property="og:updated_time" content="2017-04-19T03:03:42.830Z">
+<meta property="og:updated_time" content="2017-04-19T03:06:24.101Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="成功日记2017年4月">
 <meta name="twitter:description" content="Day37: 201704011、今天把样本的匹配规则程序又进行了新一轮的优化，主要优化了以下几个方面。
@@ -347,8 +347,12 @@
 <h2 id="Day42-201704018"><a href="#Day42-201704018" class="headerlink" title="Day42: 201704018"></a>Day42: 201704018</h2><p>1、今天开始了计划的第一件事情，用中文维基百科数据做数据集，训练word2vec词向量模型。主要分为以下三个步骤：</p>
 <ul>
 <li><p>数据准备。下载的维基百科数据时XML格式，需要转化成txt格式文件，使用到了gensim.corpora中的WikiCorpus方法处理wiki数据。</p>
-<p>  #主要代码<br>  #gensim里的维基百科处理类WikiCorpus<br>  wiki =WikiCorpus(inp, lemmatize=False, dictionary=[])<br>  #通过get_texts将维基里的每篇文章转换位1行text文本，并且去掉了标点符号等内容<br>  for text in wiki.get_texts():</p>
-<pre><code>output.write(space.join(text) + &quot;\n&quot;)
+<pre><code>#主要代码
+#gensim里的维基百科处理类WikiCorpus
+wiki =WikiCorpus(inp, lemmatize=False, dictionary=[])
+#通过get_texts将维基里的每篇文章转换位1行text文本，并且去掉了标点符号等内容
+for text in wiki.get_texts():
+    output.write(space.join(text) + &quot;\n&quot;)
 </code></pre></li>
 <li><p>数据预处理。1）中文维基百科数据包含繁体中文，需要将繁体中文转换成为简体中文；2）使用结巴分词对句子进行词语划分。</p>
 </li>
@@ -358,11 +362,15 @@
 <p>目前，已做好了第一个步骤的内容，第二步主要是繁体中文变成简体中文还没有研究清楚，分词以及Word2Vec模型训练之前就做过因此难度不大。<br>2、在学习的过程中又get到了两个python的基本知识点。</p>
 <ul>
 <li><p>sys.argv可以获取python的命令行参数，并以列表形式存在。</p>
-<p>  #cmd中执行下列命令运行1_process.py文件，sys.argv可获取python后面的三个参数<br>  python 1_process.py zhwiki-latest-pages-articles.xml.bz2 wiki.zh.txt</p>
-</li>
+<pre><code>#cmd中执行下列命令运行1_process.py文件，sys.argv可获取python后面的三个参数
+python 1_process.py zhwiki-latest-pages-articles.xml.bz2 wiki.zh.txt
+</code></pre></li>
 <li><p>logging模块用于打印执行记录。</p>
-<p>  logger = logging.getLogger(program)<br>  logging.basicConfig(format=”%(asctime)s: %(levelname)s: %(message)s”)<br>  logging.root.setLevel(level=logging.INFO)<br>  logger.info(“running %s” % “ “.join(sys.argv))</p>
-</li>
+<pre><code>logger = logging.getLogger(program)
+logging.basicConfig(format=&quot;%(asctime)s: %(levelname)s: %(message)s&quot;)
+logging.root.setLevel(level=logging.INFO)
+logger.info(&quot;running %s&quot; % &quot; &quot;.join(sys.argv))
+</code></pre></li>
 </ul>
 
       
