@@ -96,7 +96,7 @@
 
 1）清洗标题，去除副标题。去除了标题中存在的’&amp;nbsp;’字符串和前后空格，认为标题中空格数超过10的则包含副标题，选择最后一个空格删除其后的字符串，并以此循环。
 2）匹配正文关键词。若文章正文中包含某些指定关键词，则确定为分类内容。文档正文存储在mongodb中，可能存在为空的情况，因此">
-<meta property="og:updated_time" content="2017-04-19T03:06:24.101Z">
+<meta property="og:updated_time" content="2017-04-20T08:31:10.085Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="成功日记2017年4月">
 <meta name="twitter:description" content="Day37: 201704011、今天把样本的匹配规则程序又进行了新一轮的优化，主要优化了以下几个方面。
@@ -372,7 +372,58 @@ logging.root.setLevel(level=logging.INFO)
 logger.info(&quot;running %s&quot; % &quot; &quot;.join(sys.argv))
 </code></pre></li>
 </ul>
+<h2 id="Day43-201704019"><a href="#Day43-201704019" class="headerlink" title="Day43: 201704019"></a>Day43: 201704019</h2><p>1、今天实现了中文维基百科数据的数据预处理部分：</p>
+<ul>
+<li><p>使用<a href="https://bintray.com/package/files/byvoid/opencc/OpenCC" target="_blank" rel="external">opencc</a>实现中文的繁体转简体，在安装目录打开cmd，输入以下命令行即可得到。</p>
+<pre><code>opencc -i wiki.zh.txt -o wiki.zh.simp.txt -c t2s.json
+</code></pre></li>
+<li><p>使用python的jieba模块实现简体中文的分词，实现代码如下。</p>
+<pre><code>#!/usr/bin/env python
+# -*- coding: utf-8  -*-
+#逐行读取文件数据进行jieba分词
+import jieba
+import jieba.analyse
+import jieba.posseg as pseg #引入词性标注接口 
+import codecs,sys
 
+if __name__ == &apos;__main__&apos;:
+    f = codecs.open(&apos;wiki.zh.simp.txt&apos;, &apos;r&apos;, encoding=&apos;utf8&apos;)
+    target = codecs.open(&apos;wiki.zh.simp.seg.txt&apos;, &apos;w&apos;, encoding=&apos;utf8&apos;)
+    print &apos;open files.&apos;
+
+    lineNum = 1
+    line = f.readline()
+    while line:
+        print &apos;---processing &apos;,lineNum,&apos; article---&apos;
+        seg_list = jieba.cut(line,cut_all=False)
+        line_seg = &apos; &apos;.join(seg_list)
+        target.writelines(line_seg)
+        lineNum = lineNum + 1
+        line = f.readline()
+
+    print &apos;well done.&apos;
+    f.close()
+    target.close()
+</code></pre></li>
+</ul>
+<p>结巴分词的代码非常简单，主要只有一句<em>jieba.cut(line,cut_all=False)</em>，其中的原理还是蛮复杂的，以后有空的话来研究下，现在只需要知道如何实现。</p>
+<p>2、使用word2vec的词向量训练模型代码已经写好，运行的时候发生内存的错误，查询了解到这个建模的过程是非常耗内存的，看来这台电脑的配置是无法运行这个程序了，还得回家去运行得到建模结果。word2vec建模的主要代码如下：</p>
+<pre><code>from gensim.models import Word2Vec
+from gensim.models.word2vec import LineSentence
+
+# inp为输入语料, outp1 为输出模型, outp2为原始c版本word2vec的vector格式的模型
+inp = &apos;wiki.zh.simp.seg.txt&apos;
+outp1 = &apos;wiki.zh.text.model&apos;
+outp2 = &apos;wiki.zh.text.vector&apos;
+
+# 训练skip-gram模型
+model = Word2Vec(LineSentence(inp), size=400, window=5, min_count=5,
+                 workers=2)
+
+# 保存模型
+model.save(outp1)
+model.save_word2vec_format(outp2, binary=False)
+</code></pre>
       
     </div>
 
@@ -534,7 +585,7 @@ logger.info(&quot;running %s&quot; % &quot; &quot;.join(sys.argv))
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Day37-20170401"><span class="nav-number">1.</span> <span class="nav-text">Day37: 20170401</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day38-20170404"><span class="nav-number">2.</span> <span class="nav-text">Day38: 20170404</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day39-201704013"><span class="nav-number">3.</span> <span class="nav-text">Day39: 201704013</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day40-201704016"><span class="nav-number">4.</span> <span class="nav-text">Day40: 201704016</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day41-201704017"><span class="nav-number">5.</span> <span class="nav-text">Day41: 201704017</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day42-201704018"><span class="nav-number">6.</span> <span class="nav-text">Day42: 201704018</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Day37-20170401"><span class="nav-number">1.</span> <span class="nav-text">Day37: 20170401</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day38-20170404"><span class="nav-number">2.</span> <span class="nav-text">Day38: 20170404</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day39-201704013"><span class="nav-number">3.</span> <span class="nav-text">Day39: 201704013</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day40-201704016"><span class="nav-number">4.</span> <span class="nav-text">Day40: 201704016</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day41-201704017"><span class="nav-number">5.</span> <span class="nav-text">Day41: 201704017</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day42-201704018"><span class="nav-number">6.</span> <span class="nav-text">Day42: 201704018</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day43-201704019"><span class="nav-number">7.</span> <span class="nav-text">Day43: 201704019</span></a></li></ol></div>
             
           </div>
         </section>
