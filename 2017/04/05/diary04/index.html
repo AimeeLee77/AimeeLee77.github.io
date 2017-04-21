@@ -96,7 +96,7 @@
 
 1）清洗标题，去除副标题。去除了标题中存在的’&amp;nbsp;’字符串和前后空格，认为标题中空格数超过10的则包含副标题，选择最后一个空格删除其后的字符串，并以此循环。
 2）匹配正文关键词。若文章正文中包含某些指定关键词，则确定为分类内容。文档正文存储在mongodb中，可能存在为空的情况，因此">
-<meta property="og:updated_time" content="2017-04-20T08:31:10.085Z">
+<meta property="og:updated_time" content="2017-04-21T01:15:18.688Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="成功日记2017年4月">
 <meta name="twitter:description" content="Day37: 201704011、今天把样本的匹配规则程序又进行了新一轮的优化，主要优化了以下几个方面。
@@ -423,7 +423,8 @@ model = Word2Vec(LineSentence(inp), size=400, window=5, min_count=5,
 # 保存模型
 model.save(outp1)
 model.save_word2vec_format(outp2, binary=False)
-</code></pre>
+</code></pre><h2 id="Day44-20170420"><a href="#Day44-20170420" class="headerlink" title="Day44: 20170420"></a>Day44: 20170420</h2><p>1、wiki中文语料训练word2vec词向量模型的工作基本接近尾声，代码已经全部写完，只是因为工作电脑太渣内存不够无法执行模型训练程序，计划周末在家里试试能否训练，如果顺利则此项任务也算是圆满成功。在做这项工作的工程中，我每完成一步，就写在文档里，不知不觉已经落笔成文了，待全部完成后丰满下即可发布成文章。现在发现这种边做边写的方式真的是蛮好，以前总是等到事情全部完成后再想着写些什么，可是总会搁置然后等想起来就忘记怎么做的了，以后继续这种写作模式，每做一个项目就记录下来，当项目做完了文档也完成了，如此甚好。<br>2、接下来想做的项目是有关于情感极性分析，受到<a href="http://www.jianshu.com/p/4cfcf1610a73" target="_blank" rel="external">“Python做文本情感分析之情感极性分析”</a>这篇文章的启发和引导。预计在word2vec词向量模型的基础上，增加去除停用词、标准化、PCA降维、SVM分类、CNN分类等步骤，深入研究基于监督学习的分类算法和基于非监督学习的分类算法，相信当这一项目实现后，发表文章指日可待。<br>3、今天在阅读有道内部的技术文章后，萌生了自己搜集关于各个公司或者大牛的信息源并每天定时采集，建立网站展示以供自己浏览的想法，这是个很实用的项目，而且也不算很难的部分，预计与第二个项目同时开始实施。</p>
+
       
     </div>
 
@@ -585,7 +586,7 @@ model.save_word2vec_format(outp2, binary=False)
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Day37-20170401"><span class="nav-number">1.</span> <span class="nav-text">Day37: 20170401</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day38-20170404"><span class="nav-number">2.</span> <span class="nav-text">Day38: 20170404</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day39-201704013"><span class="nav-number">3.</span> <span class="nav-text">Day39: 201704013</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day40-201704016"><span class="nav-number">4.</span> <span class="nav-text">Day40: 201704016</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day41-201704017"><span class="nav-number">5.</span> <span class="nav-text">Day41: 201704017</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day42-201704018"><span class="nav-number">6.</span> <span class="nav-text">Day42: 201704018</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day43-201704019"><span class="nav-number">7.</span> <span class="nav-text">Day43: 201704019</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Day37-20170401"><span class="nav-number">1.</span> <span class="nav-text">Day37: 20170401</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day38-20170404"><span class="nav-number">2.</span> <span class="nav-text">Day38: 20170404</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day39-201704013"><span class="nav-number">3.</span> <span class="nav-text">Day39: 201704013</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day40-201704016"><span class="nav-number">4.</span> <span class="nav-text">Day40: 201704016</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day41-201704017"><span class="nav-number">5.</span> <span class="nav-text">Day41: 201704017</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day42-201704018"><span class="nav-number">6.</span> <span class="nav-text">Day42: 201704018</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day43-201704019"><span class="nav-number">7.</span> <span class="nav-text">Day43: 201704019</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day44-20170420"><span class="nav-number">8.</span> <span class="nav-text">Day44: 20170420</span></a></li></ol></div>
             
           </div>
         </section>
