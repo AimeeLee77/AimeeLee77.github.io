@@ -96,7 +96,7 @@
 
 1）清洗标题，去除副标题。去除了标题中存在的’&amp;nbsp;’字符串和前后空格，认为标题中空格数超过10的则包含副标题，选择最后一个空格删除其后的字符串，并以此循环。
 2）匹配正文关键词。若文章正文中包含某些指定关键词，则确定为分类内容。文档正文存储在mongodb中，可能存在为空的情况，因此">
-<meta property="og:updated_time" content="2017-04-24T07:07:13.649Z">
+<meta property="og:updated_time" content="2017-04-25T09:19:56.838Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="成功日记2017年4月">
 <meta name="twitter:description" content="Day37: 201704011、今天把样本的匹配规则程序又进行了新一轮的优化，主要优化了以下几个方面。
@@ -425,6 +425,23 @@ model.save(outp1)
 model.save_word2vec_format(outp2, binary=False)
 </code></pre><h2 id="Day44-20170420"><a href="#Day44-20170420" class="headerlink" title="Day44: 20170420"></a>Day44: 20170420</h2><p>1、wiki中文语料训练word2vec词向量模型的工作基本接近尾声，代码已经全部写完，只是因为工作电脑太渣内存不够无法执行模型训练程序，计划周末在家里试试能否训练，如果顺利则此项任务也算是圆满成功。在做这项工作的工程中，我每完成一步，就写在文档里，不知不觉已经落笔成文了，待全部完成后丰满下即可发布成文章。现在发现这种边做边写的方式真的是蛮好，以前总是等到事情全部完成后再想着写些什么，可是总会搁置然后等想起来就忘记怎么做的了，以后继续这种写作模式，每做一个项目就记录下来，当项目做完了文档也完成了，如此甚好。<br>2、接下来想做的项目是有关于情感极性分析，受到<a href="http://www.jianshu.com/p/4cfcf1610a73" target="_blank" rel="external">“Python做文本情感分析之情感极性分析”</a>这篇文章的启发和引导。预计在word2vec词向量模型的基础上，增加去除停用词、标准化、PCA降维、SVM分类、CNN分类等步骤，深入研究基于监督学习的分类算法和基于非监督学习的分类算法，相信当这一项目实现后，发表文章指日可待。<br>3、今天在阅读有道内部的技术文章后，萌生了自己搜集关于各个公司或者大牛的信息源并每天定时采集，建立网站展示以供自己浏览的想法，这是个很实用的项目，而且也不算很难的部分，预计与第二个项目同时开始实施。</p>
 <h2 id="Day45-20170421"><a href="#Day45-20170421" class="headerlink" title="Day45: 20170421"></a>Day45: 20170421</h2><p>1、今天开始做情感极限分析，迈出了第一步。从数据堂中下载了酒店的评价语料，以及中科院计算所发布的停用词，先挑选了2000条正负样本的数据为例进行代码测试，并写好程序实现了样本数据的合并，完成了第一步的工作。在下一周的工作中，将继续未完成的任务，实现数据的预处理以及分类模型的构建。</p>
+<h2 id="Day46-20170424"><a href="#Day46-20170424" class="headerlink" title="Day46: 20170424"></a>Day46: 20170424</h2><p>1、今天使用jieba分词分别对正负样本进行分词，并采用中科院计算所提供的停用词表去除样本中的停用词，通过两步走的方式分别得到了分词结果和去除停用词的结果。</p>
+<p>分词前需要去除文本中包含的英文、数字和字符，主要代码如下：</p>
+<pre><code>line = line.decode(&quot;utf8&quot;)
+#去除文本中的英文和数字
+line = re.sub(&quot;[a-zA-Z0-9]&quot;,&quot;&quot;,line)
+#去除文本中的中文符号和英文符号
+line = re.sub(&quot;[\s+\.\!\/_,$%^*(+\&quot;\&apos;；：“”．]+|[+——！，。？?、~@#￥%……&amp;*（）]+&quot;.decode(&quot;utf8&quot;), &quot;&quot;,line) 
+</code></pre><p>结巴分词核心代码：</p>
+<pre><code>segList = jieba.cut(line,cut_all=False) 
+</code></pre><p>去除停用词的核心代码：</p>
+<pre><code>wordkey = [w.strip() for w in codecs.open(&apos;stopWord.txt&apos;, &apos;r&apos;, encoding=&apos;utf-8&apos;).readlines()]
+wordList = line.split(&apos; &apos;)
+sentence = &apos;&apos;
+for word in wordList:
+    if word not in wordkey:
+        sentence += word + &apos; &apos;
+</code></pre><p>2、把macbook上的python环境配置好了，明晚跑wiki中文语料的词向量模型，计划将模型用于以上的例子中，根据模型提取正负样本的特征向量，从而进行后续的分类建模。</p>
 
       
     </div>
@@ -587,7 +604,7 @@ model.save_word2vec_format(outp2, binary=False)
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Day37-20170401"><span class="nav-number">1.</span> <span class="nav-text">Day37: 20170401</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day38-20170404"><span class="nav-number">2.</span> <span class="nav-text">Day38: 20170404</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day39-20170413"><span class="nav-number">3.</span> <span class="nav-text">Day39: 20170413</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day40-20170416"><span class="nav-number">4.</span> <span class="nav-text">Day40: 20170416</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day41-20170417"><span class="nav-number">5.</span> <span class="nav-text">Day41: 20170417</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day42-20170418"><span class="nav-number">6.</span> <span class="nav-text">Day42: 20170418</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day43-20170419"><span class="nav-number">7.</span> <span class="nav-text">Day43: 20170419</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day44-20170420"><span class="nav-number">8.</span> <span class="nav-text">Day44: 20170420</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day45-20170421"><span class="nav-number">9.</span> <span class="nav-text">Day45: 20170421</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Day37-20170401"><span class="nav-number">1.</span> <span class="nav-text">Day37: 20170401</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day38-20170404"><span class="nav-number">2.</span> <span class="nav-text">Day38: 20170404</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day39-20170413"><span class="nav-number">3.</span> <span class="nav-text">Day39: 20170413</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day40-20170416"><span class="nav-number">4.</span> <span class="nav-text">Day40: 20170416</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day41-20170417"><span class="nav-number">5.</span> <span class="nav-text">Day41: 20170417</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day42-20170418"><span class="nav-number">6.</span> <span class="nav-text">Day42: 20170418</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day43-20170419"><span class="nav-number">7.</span> <span class="nav-text">Day43: 20170419</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day44-20170420"><span class="nav-number">8.</span> <span class="nav-text">Day44: 20170420</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day45-20170421"><span class="nav-number">9.</span> <span class="nav-text">Day45: 20170421</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day46-20170424"><span class="nav-number">10.</span> <span class="nav-text">Day46: 20170424</span></a></li></ol></div>
             
           </div>
         </section>
