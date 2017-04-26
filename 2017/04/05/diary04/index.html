@@ -96,7 +96,7 @@
 
 1）清洗标题，去除副标题。去除了标题中存在的’&amp;nbsp;’字符串和前后空格，认为标题中空格数超过10的则包含副标题，选择最后一个空格删除其后的字符串，并以此循环。
 2）匹配正文关键词。若文章正文中包含某些指定关键词，则确定为分类内容。文档正文存储在mongodb中，可能存在为空的情况，因此">
-<meta property="og:updated_time" content="2017-04-25T09:19:56.838Z">
+<meta property="og:updated_time" content="2017-04-26T02:36:17.324Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="成功日记2017年4月">
 <meta name="twitter:description" content="Day37: 201704011、今天把样本的匹配规则程序又进行了新一轮的优化，主要优化了以下几个方面。
@@ -442,7 +442,27 @@ for word in wordList:
     if word not in wordkey:
         sentence += word + &apos; &apos;
 </code></pre><p>2、把macbook上的python环境配置好了，明晚跑wiki中文语料的词向量模型，计划将模型用于以上的例子中，根据模型提取正负样本的特征向量，从而进行后续的分类建模。</p>
+<h2 id="Day47-20170425"><a href="#Day47-20170425" class="headerlink" title="Day47: 20170425"></a>Day47: 20170425</h2><p>1、政策规划的提取项目进一步优化了匹配规则，新增了删除关键词表keywords_cancel,即只要标题中包含该词表中的关键词就代表绝对不属于政策，代码已经修改完成，待词表完善后即可跑结果。<br>2、今天采用鸢尾花数据做样本练习了PCA和SVM的python实现，用到的是scikit-learn第三方python包，具体代码如下。</p>
+<pre><code>from sklearn.datasets import load_iris
+from sklearn.decomposition import PCA
+from sklearn import svm
+# 获取数据
+iris = load_iris()
+x = iris.data
+y = iris.target
 
+# PCA降维
+n_components = 2 #主成分个数
+pca = PCA(n_components=n_components)
+x_pca = pca.fit_transform(x)
+
+# SVM分类
+C = 1.0  # SVM regularization parameter
+svc = svm.SVC(kernel=&apos;linear&apos;, C=C).fit(x_pca,y)
+rbf_svc = svm.SVC(kernel=&apos;rbf&apos;, gamma=0.7, C=C).fit(x_pca,y)
+poly_svc = svm.SVC(kernel=&apos;poly&apos;, degree=3, C=C).fit(x_pca,y)
+lin_svc = svm.LinearSVC(C=C).fit(x_pca,y)
+</code></pre>
       
     </div>
 
@@ -604,7 +624,7 @@ for word in wordList:
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Day37-20170401"><span class="nav-number">1.</span> <span class="nav-text">Day37: 20170401</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day38-20170404"><span class="nav-number">2.</span> <span class="nav-text">Day38: 20170404</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day39-20170413"><span class="nav-number">3.</span> <span class="nav-text">Day39: 20170413</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day40-20170416"><span class="nav-number">4.</span> <span class="nav-text">Day40: 20170416</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day41-20170417"><span class="nav-number">5.</span> <span class="nav-text">Day41: 20170417</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day42-20170418"><span class="nav-number">6.</span> <span class="nav-text">Day42: 20170418</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day43-20170419"><span class="nav-number">7.</span> <span class="nav-text">Day43: 20170419</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day44-20170420"><span class="nav-number">8.</span> <span class="nav-text">Day44: 20170420</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day45-20170421"><span class="nav-number">9.</span> <span class="nav-text">Day45: 20170421</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day46-20170424"><span class="nav-number">10.</span> <span class="nav-text">Day46: 20170424</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Day37-20170401"><span class="nav-number">1.</span> <span class="nav-text">Day37: 20170401</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day38-20170404"><span class="nav-number">2.</span> <span class="nav-text">Day38: 20170404</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day39-20170413"><span class="nav-number">3.</span> <span class="nav-text">Day39: 20170413</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day40-20170416"><span class="nav-number">4.</span> <span class="nav-text">Day40: 20170416</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day41-20170417"><span class="nav-number">5.</span> <span class="nav-text">Day41: 20170417</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day42-20170418"><span class="nav-number">6.</span> <span class="nav-text">Day42: 20170418</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day43-20170419"><span class="nav-number">7.</span> <span class="nav-text">Day43: 20170419</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day44-20170420"><span class="nav-number">8.</span> <span class="nav-text">Day44: 20170420</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day45-20170421"><span class="nav-number">9.</span> <span class="nav-text">Day45: 20170421</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day46-20170424"><span class="nav-number">10.</span> <span class="nav-text">Day46: 20170424</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day47-20170425"><span class="nav-number">11.</span> <span class="nav-text">Day47: 20170425</span></a></li></ol></div>
             
           </div>
         </section>
