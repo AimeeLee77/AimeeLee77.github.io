@@ -96,7 +96,7 @@
 
 1）清洗标题，去除副标题。去除了标题中存在的’&amp;nbsp;’字符串和前后空格，认为标题中空格数超过10的则包含副标题，选择最后一个空格删除其后的字符串，并以此循环。
 2）匹配正文关键词。若文章正文中包含某些指定关键词，则确定为分类内容。文档正文存储在mongodb中，可能存在为空的情况，因此">
-<meta property="og:updated_time" content="2017-04-26T02:36:17.324Z">
+<meta property="og:updated_time" content="2017-04-28T02:32:00.185Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="成功日记2017年4月">
 <meta name="twitter:description" content="Day37: 201704011、今天把样本的匹配规则程序又进行了新一轮的优化，主要优化了以下几个方面。
@@ -462,7 +462,39 @@ svc = svm.SVC(kernel=&apos;linear&apos;, C=C).fit(x_pca,y)
 rbf_svc = svm.SVC(kernel=&apos;rbf&apos;, gamma=0.7, C=C).fit(x_pca,y)
 poly_svc = svm.SVC(kernel=&apos;poly&apos;, degree=3, C=C).fit(x_pca,y)
 lin_svc = svm.LinearSVC(C=C).fit(x_pca,y)
-</code></pre>
+</code></pre><h2 id="Day48-20170427"><a href="#Day48-20170427" class="headerlink" title="Day48: 20170427"></a>Day48: 20170427</h2><p>1、这两天主要做珍珠产业的项目，把需要的数据表移植到新建的数据库industry_pearls中，并修改了文档模块的内容，为了便于以后统一管理将sql语句中写死的数据表抽取出来写入数据表定义类中。</p>
+<p>2、在项目过程中文档的整理入库需要写逻辑代码，因此采用python来实现了。这次的练习主要新学习了以下几个知识点：</p>
+<ul>
+<li>Mysql数据库类的优化，加入了try-exception错误验证，同时认识到对于数据的插入、修改操作最后一定要加入commit提交，否则数据库中不会有任何改变。</li>
+<li>sql语句获取新插入记录的ID，可使用’SELECT MAX(id) FROM document_data’得到。</li>
+<li><p>sql语句获取的值都是元祖类型，如果需要查看得转成列表，若获取的是一个值还需要给定下标。</p>
+<pre><code>class_id = list(result)[0]
+</code></pre></li>
+<li><p>Excel文件的操作使用到了xlrd包，读取代码如下：</p>
+<pre><code>data = xlrd.open_workbook(u&apos;信息表.xlsx&apos;)
+table = data.sheets()[2] #读取第三张表
+ncols = table.ncols   #得到列的个数
+for i in range(ncols):
+    for j in table.col_values(i): #打印每一个单元格的值
+        j = j.strip()
+        print j
+</code></pre></li>
+<li><p>python中获取当前时间可使用datetime包，strftime函数用来定义日期格式。</p>
+<pre><code>cur_time = datetime.datetime.now().strftime(&apos;%Y-%m-%d %H:%M:%S&apos;)
+</code></pre></li>
+<li><p>python中遍历文件夹中的文件，使用如下代码：</p>
+<pre><code>#三个参数：分别返回1.父目录 2.所有文件夹名字（不含路径） 3.所有文件名字
+for parent,dirnames,filenames in os.walk(rootdir):
+    for filename in filenames:
+        (shotname,extension) = os.path.splitext(filename)#返回文件名称和文件扩展名
+</code></pre></li>
+<li><p>python中对于文件的操作使用shutil包，移动文件到新目录下重命名并删除原文件的代码如下：</p>
+<pre><code># 移动文件到新文件夹并用id重命名
+shutil.copyfile(rootdir + &quot;/&quot;+filename,&quot;files/&quot;+str(document_id)+str(extension))
+os.remove(rootdir + &quot;/&quot;+filename)
+</code></pre></li>
+</ul>
+
       
     </div>
 
@@ -624,7 +656,7 @@ lin_svc = svm.LinearSVC(C=C).fit(x_pca,y)
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Day37-20170401"><span class="nav-number">1.</span> <span class="nav-text">Day37: 20170401</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day38-20170404"><span class="nav-number">2.</span> <span class="nav-text">Day38: 20170404</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day39-20170413"><span class="nav-number">3.</span> <span class="nav-text">Day39: 20170413</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day40-20170416"><span class="nav-number">4.</span> <span class="nav-text">Day40: 20170416</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day41-20170417"><span class="nav-number">5.</span> <span class="nav-text">Day41: 20170417</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day42-20170418"><span class="nav-number">6.</span> <span class="nav-text">Day42: 20170418</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day43-20170419"><span class="nav-number">7.</span> <span class="nav-text">Day43: 20170419</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day44-20170420"><span class="nav-number">8.</span> <span class="nav-text">Day44: 20170420</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day45-20170421"><span class="nav-number">9.</span> <span class="nav-text">Day45: 20170421</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day46-20170424"><span class="nav-number">10.</span> <span class="nav-text">Day46: 20170424</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day47-20170425"><span class="nav-number">11.</span> <span class="nav-text">Day47: 20170425</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Day37-20170401"><span class="nav-number">1.</span> <span class="nav-text">Day37: 20170401</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day38-20170404"><span class="nav-number">2.</span> <span class="nav-text">Day38: 20170404</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day39-20170413"><span class="nav-number">3.</span> <span class="nav-text">Day39: 20170413</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day40-20170416"><span class="nav-number">4.</span> <span class="nav-text">Day40: 20170416</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day41-20170417"><span class="nav-number">5.</span> <span class="nav-text">Day41: 20170417</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day42-20170418"><span class="nav-number">6.</span> <span class="nav-text">Day42: 20170418</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day43-20170419"><span class="nav-number">7.</span> <span class="nav-text">Day43: 20170419</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day44-20170420"><span class="nav-number">8.</span> <span class="nav-text">Day44: 20170420</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day45-20170421"><span class="nav-number">9.</span> <span class="nav-text">Day45: 20170421</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day46-20170424"><span class="nav-number">10.</span> <span class="nav-text">Day46: 20170424</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day47-20170425"><span class="nav-number">11.</span> <span class="nav-text">Day47: 20170425</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day48-20170427"><span class="nav-number">12.</span> <span class="nav-text">Day48: 20170427</span></a></li></ol></div>
             
           </div>
         </section>
