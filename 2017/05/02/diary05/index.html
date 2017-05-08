@@ -102,7 +102,7 @@ Day49: 201705021、今天">
 开始论文的写作，基本思路已经定下来了，现在就是尽快把手头上的两个学习例子完成。
 
 Day49: 201705021、今天">
-<meta property="og:updated_time" content="2017-05-08T00:31:48.967Z">
+<meta property="og:updated_time" content="2017-05-08T09:20:34.375Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="成功日记2017年5月">
 <meta name="twitter:description" content="Day48: 201705011、转眼就到了5月份，经过这2个月的学习对python和机器学习有了更多的了解，可是感觉知识体系比较零散，现在是到了对已学内容做总结输出的时候了。计划这个月的重点任务有三个：
@@ -356,6 +356,64 @@ Day49: 201705021、今天">
 <h2 id="Day50-20170503"><a href="#Day50-20170503" class="headerlink" title="Day50: 20170503"></a>Day50: 20170503</h2><p>1、今天终于把wiki中文的word2vec向量模型跑出来了，原来是在生成向量文件时要用model.wv.save_word2vec_format(outp2, binary=False)替代之前的函数，都怪自己不用心没有仔细看报错信息导致耽误了这么久的时间。接下来的几天主要完成两件事情：1）实现过程总结成文；2）利用这个模型完成酒店评论分类的剩下部分。</p>
 <h2 id="Day51-20170504"><a href="#Day51-20170504" class="headerlink" title="Day51: 20170504"></a>Day51: 20170504</h2><p>1、今天把wiki中文语料训练word2vec词向量模型的整个实现过程总结成了一片文章并发布出来，在写文章的过程中感悟到，写的都是实践的部分，怎么做都能讲的出来，可是原理型的内容确知之甚少，即理论基础非常薄弱，这个也是为啥让我讲东西缺将不出来而只能做出来的原因了。今后一定要在理论部分进行强化，多多阅读书本和相关知识点的文章，做到能说也能做。<br>2、根据参考资料开始做情感极限分析中的第四个部分-特征词向量的提取，即从wiki中文语料词向量中提取特征向量，代码已经写了部分，可是读取词向量依然对电脑内存要求很高，测试起来需要时间，计划这个周末能把情感极限分析的代码部分结束掉。</p>
 <h2 id="Day52-20170507"><a href="#Day52-20170507" class="headerlink" title="Day52: 20170507"></a>Day52: 20170507</h2><p>1、周末把从模型向量集中提取文本特征向量的程序写好并且运行出来了结果，周一继续完成分类程序并得到结果，同时还要理解词向量的计算过程。</p>
+<h2 id="Day53-20170508"><a href="#Day53-20170508" class="headerlink" title="Day53: 20170508"></a>Day53: 20170508</h2><p>1、今天使用SVM算法实现了情感分析语料的分类，基本梳理了整个python代码实现过程。在特征提取和分类预测两个部分，主要学习到的知识点有以下几个：</p>
+<ul>
+<li>使用 model = gensim.models.KeyedVectors.load_word2vec_format(inp, binary=False)实现模型向量的读取。</li>
+<li><p>sentence根据遍历词来提取得到词向量矩阵，其中矩阵的行数为词的个数，列数为设定的维度（如400维则有400列），每一行即为所在下标词的向量表示。而句子的向量表示应是一行400维的一个列表，因此取矩阵的列平均值表示sentence的向量，具体代码为：</p>
+<pre><code>vecsArray = sum(np.array(vecs))/len(vecs) # mean
+</code></pre></li>
+<li><p>np.ones函数用来新建一个全为1的列表，np.zeros用来新建一个全为0的列表，np.concatenate用来连接两个list。</p>
+<pre><code>Y = np.concatenate((np.ones(len(posInput)), np.zeros(len(negInput))))
+</code></pre></li>
+<li><p>使用pd.concat函数连接两个数据框。</p>
+<pre><code>df_x = pd.DataFrame(X)
+df_y = pd.DataFrame(Y)
+data = pd.concat([df_y,df_x],axis = 1)#0-按行连接，1-按列连接
+</code></pre><p>2、PCA算法的python实现。</p>
+<pre><code>import matplotlib.pyplot as plt
+from sklearn.decomposition import PCA
+# PCA降维
+##计算全部贡献率
+n_components = 400
+pca = PCA(n_components=n_components)
+pca.fit(x)
+#print pca.explained_variance_ratio_
+
+##PCA作图
+plt.figure(1, figsize=(4, 3))
+plt.clf()
+plt.axes([.2, .2, .7, .7])
+plt.plot(pca.explained_variance_, linewidth=2)
+plt.axis(&apos;tight&apos;)
+plt.xlabel(&apos;n_components&apos;)
+plt.ylabel(&apos;explained_variance_&apos;)
+plt.show()
+
+##根据图形取前100个
+x_pca = PCA(n_components = 100).fit_transform(x)
+</code></pre><p>3、SVM算法的python实现。</p>
+<pre><code>from sklearn import svm
+from sklearn import metrics
+# SVM (RBF)
+# using training data with 100 dimensions
+clf = svm.SVC(C = 2, probability = True)
+clf.fit(x_pca,y)
+
+print &apos;Test Accuracy: %.2f&apos;% clf.score(x_pca,y)
+
+pred_probas = clf.predict_proba(x_pca)[:,1] #score
+
+# plot ROC curve
+fpr,tpr,thresholds = metrics.roc_curve(y, pred_probas)
+roc_auc = metrics.auc(fpr,tpr)
+plt.plot(fpr, tpr, label = &apos;area = %.2f&apos; % roc_auc)
+plt.plot([0, 1], [0, 1], &apos;k--&apos;)
+plt.xlim([0.0, 1.0])
+plt.ylim([0.0, 1.05])
+plt.legend(loc = &apos;lower right&apos;)
+plt.show()
+</code></pre></li>
+</ul>
 
       
     </div>
@@ -522,7 +580,7 @@ Day49: 201705021、今天">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Day48-20170501"><span class="nav-number">1.</span> <span class="nav-text">Day48: 20170501</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day49-20170502"><span class="nav-number">2.</span> <span class="nav-text">Day49: 20170502</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day50-20170503"><span class="nav-number">3.</span> <span class="nav-text">Day50: 20170503</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day51-20170504"><span class="nav-number">4.</span> <span class="nav-text">Day51: 20170504</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day52-20170507"><span class="nav-number">5.</span> <span class="nav-text">Day52: 20170507</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Day48-20170501"><span class="nav-number">1.</span> <span class="nav-text">Day48: 20170501</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day49-20170502"><span class="nav-number">2.</span> <span class="nav-text">Day49: 20170502</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day50-20170503"><span class="nav-number">3.</span> <span class="nav-text">Day50: 20170503</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day51-20170504"><span class="nav-number">4.</span> <span class="nav-text">Day51: 20170504</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day52-20170507"><span class="nav-number">5.</span> <span class="nav-text">Day52: 20170507</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day53-20170508"><span class="nav-number">6.</span> <span class="nav-text">Day53: 20170508</span></a></li></ol></div>
             
           </div>
         </section>
