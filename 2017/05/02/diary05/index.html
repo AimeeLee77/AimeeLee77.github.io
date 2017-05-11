@@ -102,7 +102,7 @@ Day49: 201705021、今天">
 开始论文的写作，基本思路已经定下来了，现在就是尽快把手头上的两个学习例子完成。
 
 Day49: 201705021、今天">
-<meta property="og:updated_time" content="2017-05-10T02:19:50.136Z">
+<meta property="og:updated_time" content="2017-05-11T01:04:59.957Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="成功日记2017年5月">
 <meta name="twitter:description" content="Day48: 201705011、转眼就到了5月份，经过这2个月的学习对python和机器学习有了更多的了解，可是感觉知识体系比较零散，现在是到了对已学内容做总结输出的时候了。计划这个月的重点任务有三个：
@@ -427,6 +427,24 @@ plt.show()
 <li>机器学习属于有监督学习，通过误差的反向传播来调整参数；深度学习是无监督学习，本质是有层级关系的抽象和迭代过程，即每一层的输出都是下一层的输入，且同层和跨层之间的节点没有联系。</li>
 <li>算法的准确性取决于特征的表达，大部分的工作也在于此。</li>
 </ul>
+<h2 id="Day55-201705010"><a href="#Day55-201705010" class="headerlink" title="Day55: 201705010"></a>Day55: 201705010</h2><p>1、今天开始写政策规划数据入库的代码，已经写了一部分，学习到的python基本用法有以下几点。</p>
+<ul>
+<li><p>想要在文件中引入自定义的模块，可以把自定义模块地址加入系统地址中，代码如下。</p>
+<pre><code>import sys
+sys.path.append(r&apos;lib&apos;) # 自定义模块在lib文件夹中
+from cls_mysql import MySQL # import自定义模块cls_mysql文件中的MySQL类
+</code></pre></li>
+<li><p>读取csv文件数据时，若没有表头定义header=None即可。</p>
+<pre><code>df = pd.read_csv(&apos;test.csv&apos;,header=None)
+</code></pre></li>
+<li>通过列值筛选数据集： <em>data = df[ df[0] ==1 ] # 筛选出第一列为1的数据</em></li>
+<li><p>函数的映射使用apply函数，我理解的是遍历数据集并对每一个变量执行某一函数。</p>
+<pre><code># 对data的每一行数据执行func函数 
+# axis（轴）: 0-列，1-行    
+data.apply(lambda x: func(x), axis=1) 
+</code></pre><p>2、对于CNN实践的学习要趁热打铁继续进行了，已经有两天没做相关事情，还要尽早完成CNN在酒店评论实例中的应用，并继续完成总结文档。</p>
+</li>
+</ul>
 
       
     </div>
@@ -593,7 +611,7 @@ plt.show()
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Day48-20170501"><span class="nav-number">1.</span> <span class="nav-text">Day48: 20170501</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day49-20170502"><span class="nav-number">2.</span> <span class="nav-text">Day49: 20170502</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day50-20170503"><span class="nav-number">3.</span> <span class="nav-text">Day50: 20170503</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day51-20170504"><span class="nav-number">4.</span> <span class="nav-text">Day51: 20170504</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day52-20170507"><span class="nav-number">5.</span> <span class="nav-text">Day52: 20170507</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day53-20170508"><span class="nav-number">6.</span> <span class="nav-text">Day53: 20170508</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day54-20170509"><span class="nav-number">7.</span> <span class="nav-text">Day54: 20170509</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Day48-20170501"><span class="nav-number">1.</span> <span class="nav-text">Day48: 20170501</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day49-20170502"><span class="nav-number">2.</span> <span class="nav-text">Day49: 20170502</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day50-20170503"><span class="nav-number">3.</span> <span class="nav-text">Day50: 20170503</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day51-20170504"><span class="nav-number">4.</span> <span class="nav-text">Day51: 20170504</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day52-20170507"><span class="nav-number">5.</span> <span class="nav-text">Day52: 20170507</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day53-20170508"><span class="nav-number">6.</span> <span class="nav-text">Day53: 20170508</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day54-20170509"><span class="nav-number">7.</span> <span class="nav-text">Day54: 20170509</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day55-201705010"><span class="nav-number">8.</span> <span class="nav-text">Day55: 201705010</span></a></li></ol></div>
             
           </div>
         </section>
