@@ -102,7 +102,7 @@ Day49: 201705021、今天">
 开始论文的写作，基本思路已经定下来了，现在就是尽快把手头上的两个学习例子完成。
 
 Day49: 201705021、今天">
-<meta property="og:updated_time" content="2017-05-18T01:09:32.003Z">
+<meta property="og:updated_time" content="2017-05-19T01:25:49.367Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="成功日记2017年5月">
 <meta name="twitter:description" content="Day48: 201705011、转眼就到了5月份，经过这2个月的学习对python和机器学习有了更多的了解，可是感觉知识体系比较零散，现在是到了对已学内容做总结输出的时候了。计划这个月的重点任务有三个：
@@ -472,6 +472,26 @@ data.apply(lambda x: func(x), axis=1)
 <li>python文件头定义了utf8格式，中文写入数据库的时候不需要encode(‘utf-8’)，而写入文件时需要encode编码。</li>
 </ul>
 <p>3、今天阅读了两篇论文，收获在于思路的整理和写作方式的学习，要想写论文首先要多看论文，之后除了代码的整理还需要多阅读别人的文章，重点关注中文分类领域的论文，多些视野来看待该问题，寻找突破口。</p>
+<h2 id="Day60-20170518"><a href="#Day60-20170518" class="headerlink" title="Day60: 20170518"></a>Day60: 20170518</h2><p>1、今天跑完了北京、天津、河北3个省的数据，接下来就是政策规划库网站的开发了，明天周五专心做这一件事情。</p>
+<p>2、今天认真整理、书写了中文情感极性分析这个项目的文章，只剩下CNN部分未完成，计划周末的时候把CNN这块的内容弄通，下周完成这个部分的写作。同时，在查阅资料的过程中发现了我在做分析中遗漏的几点内容，现总结如下：</p>
+<ul>
+<li>做机器学习的文档样本量应该较大，最好有几十万个样本来构建词向量模型。</li>
+<li><p>应从原始样本中随机抽取样本作为训练集和测试集，如抽取训练样本和测试样本的比例为8:2，可通过sklearn.cross_validation中的train_test_split函数实现。</p>
+<pre><code>import numpy as np
+import sklearn.cross_validation import train_test_split
+
+y = np.concatenate((np.ones(len(pos_data)), np.zeros(len(neg_data))))
+
+x_train, x_test, y_train, y_test = 
+train_test_split(np.concatenate((pos_data, neg_data)), y, test_size=0.2)
+</code></pre></li>
+</ul>
+<p>这种是普通的抽样方法，论文中常用的是5折交叉验证或10折交叉验证，同样通过sklearn.cross_validation中的函数实现。</p>
+<ul>
+<li>对上述抽取出的训练样本构建词向量模型（如word2vec），而为了方便我都是用wiki中文语料作为训练样本，也看过的一篇论文用wiki中文语料+训练样本构建词向量模型的方法。</li>
+<li>对测试样本进行特征词向量的抽取和分类预测。</li>
+</ul>
+<p>3、在翻阅资料的过程中又发现了一个步骤比较全的实例：<a href="http://www.open-open.com/lib/view/open1444351655682.html，计划下一个项目练习参考此文。" target="_blank" rel="external">http://www.open-open.com/lib/view/open1444351655682.html，计划下一个项目练习参考此文。</a></p>
 
       
     </div>
@@ -638,7 +658,7 @@ data.apply(lambda x: func(x), axis=1)
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Day48-20170501"><span class="nav-number">1.</span> <span class="nav-text">Day48: 20170501</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day49-20170502"><span class="nav-number">2.</span> <span class="nav-text">Day49: 20170502</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day50-20170503"><span class="nav-number">3.</span> <span class="nav-text">Day50: 20170503</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day51-20170504"><span class="nav-number">4.</span> <span class="nav-text">Day51: 20170504</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day52-20170507"><span class="nav-number">5.</span> <span class="nav-text">Day52: 20170507</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day53-20170508"><span class="nav-number">6.</span> <span class="nav-text">Day53: 20170508</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day54-20170509"><span class="nav-number">7.</span> <span class="nav-text">Day54: 20170509</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day55-20170510"><span class="nav-number">8.</span> <span class="nav-text">Day55: 20170510</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day56-20170511"><span class="nav-number">9.</span> <span class="nav-text">Day56: 20170511</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day57-20170515"><span class="nav-number">10.</span> <span class="nav-text">Day57: 20170515</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day58-20170516"><span class="nav-number">11.</span> <span class="nav-text">Day58: 20170516</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day59-20170517"><span class="nav-number">12.</span> <span class="nav-text">Day59: 20170517</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Day48-20170501"><span class="nav-number">1.</span> <span class="nav-text">Day48: 20170501</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day49-20170502"><span class="nav-number">2.</span> <span class="nav-text">Day49: 20170502</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day50-20170503"><span class="nav-number">3.</span> <span class="nav-text">Day50: 20170503</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day51-20170504"><span class="nav-number">4.</span> <span class="nav-text">Day51: 20170504</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day52-20170507"><span class="nav-number">5.</span> <span class="nav-text">Day52: 20170507</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day53-20170508"><span class="nav-number">6.</span> <span class="nav-text">Day53: 20170508</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day54-20170509"><span class="nav-number">7.</span> <span class="nav-text">Day54: 20170509</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day55-20170510"><span class="nav-number">8.</span> <span class="nav-text">Day55: 20170510</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day56-20170511"><span class="nav-number">9.</span> <span class="nav-text">Day56: 20170511</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day57-20170515"><span class="nav-number">10.</span> <span class="nav-text">Day57: 20170515</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day58-20170516"><span class="nav-number">11.</span> <span class="nav-text">Day58: 20170516</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day59-20170517"><span class="nav-number">12.</span> <span class="nav-text">Day59: 20170517</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day60-20170518"><span class="nav-number">13.</span> <span class="nav-text">Day60: 20170518</span></a></li></ol></div>
             
           </div>
         </section>
