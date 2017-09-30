@@ -112,7 +112,7 @@ git init //把这个目录变成Git可以管理的仓库
 git add README.md //文件添加到仓库
 
 git add .">
-<meta property="og:updated_time" content="2017-05-04T08:11:59.394Z">
+<meta property="og:updated_time" content="2017-09-30T03:23:17.483Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Git新增和更新GitHub项目">
 <meta name="twitter:description" content="Git是目前最好用的版本控制系统，GitHub是基于Git实现的代码托管平台。
@@ -359,7 +359,13 @@ git push -u origin master //把本地库的所有内容推送到远程库上
 git add .
 git commit -m &quot;提交文件&quot;
 git push -u origin master
-</code></pre>
+</code></pre><h2 id="解决error-failed-to-push-some-refs-to"><a href="#解决error-failed-to-push-some-refs-to" class="headerlink" title="解决error: failed to push some refs to"></a>解决error: failed to push some refs to</h2><p>在提交代码到GitHub的时候可能会报如下错误：<br>        error: failed to push some refs to ‘<a href="https://github.com/AimeeLee77/senti_analysis.git" target="_blank" rel="external">https://github.com/AimeeLee77/senti_analysis.git</a>‘<br>        hint: Updates were rejected because the remote contains work that you do<br>        hint: not have locally. This is usually caused by another repository pushing<br>        hint: to the same ref. You may want to first integrate the remote changes<br>        hint: (e.g., ‘git pull …’) before pushing again.<br>        hint: See the ‘Note about fast-forwards’ in ‘git push –help’ for details.</p>
+<p>出现该错误的原因是：<strong>GitHub中的README.md不在本地代码目录中</strong>。</p>
+<p>解决方法是：输入如下命令将代码合并，即可在本地代码目录中看到README.md文件。<br>        git pull –rebase origin master</p>
+<p>再执行<strong>git push -u origin master </strong>命令即可实现本地文件的上传。</p>
+<h2 id="解决Branch-master-set-up-to-track-remote-branch-master-from-origin-Everything-up-to-date"><a href="#解决Branch-master-set-up-to-track-remote-branch-master-from-origin-Everything-up-to-date" class="headerlink" title="解决Branch master set up to track remote branch master from origin.Everything up-to-date"></a>解决Branch master set up to track remote branch master from origin.Everything up-to-date</h2><p>提交代码到GitHub的时候若报如下错误：<br>        Branch master set up to track remote branch master from origin.<br>        Everything up-to-date</p>
+<p>原因是没有提交comment，需先输入提交评论的命令。<br>        git commit -m “提交文件”</p>
+
       
     </div>
 
@@ -525,7 +531,7 @@ git push -u origin master
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Git新增GitHub项目"><span class="nav-number">1.</span> <span class="nav-text">使用Git新增GitHub项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Git更新GitHub项目"><span class="nav-number">2.</span> <span class="nav-text">使用Git更新GitHub项目</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Git新增GitHub项目"><span class="nav-number">1.</span> <span class="nav-text">使用Git新增GitHub项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Git更新GitHub项目"><span class="nav-number">2.</span> <span class="nav-text">使用Git更新GitHub项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决error-failed-to-push-some-refs-to"><span class="nav-number">3.</span> <span class="nav-text">解决error: failed to push some refs to</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决Branch-master-set-up-to-track-remote-branch-master-from-origin-Everything-up-to-date"><span class="nav-number">4.</span> <span class="nav-text">解决Branch master set up to track remote branch master from origin.Everything up-to-date</span></a></li></ol></div>
             
           </div>
         </section>
