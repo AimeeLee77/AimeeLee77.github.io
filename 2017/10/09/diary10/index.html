@@ -90,7 +90,7 @@
 <meta property="og:url" content="https://aimeelee77.github.io/2017/10/09/diary10/index.html">
 <meta property="og:site_name" content="AimeeLee的小世界">
 <meta property="og:description" content="Day145: 201710081、十一放了个大假，真的是让自己休息爽了，今年只剩下不到三个月的时间了，而十月份也只有3周的工作日。下定决心，从现在开始给自己6个月的准备时间来备战数据挖掘相关的内容，今天下载了一些慕课实战的视频，感觉对自己知识面的扩充很有帮助，从明天晚上开始不看电视了，每天坚持看视频，白天练习，同时一定要完成论文的发表。计划接下来一定要完成的事情是：1）论文；2）每天坚持看视频，">
-<meta property="og:updated_time" content="2017-10-24T00:42:44.915Z">
+<meta property="og:updated_time" content="2017-10-25T01:29:48.009Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="成功日记2017年10月">
 <meta name="twitter:description" content="Day145: 201710081、十一放了个大假，真的是让自己休息爽了，今年只剩下不到三个月的时间了，而十月份也只有3周的工作日。下定决心，从现在开始给自己6个月的准备时间来备战数据挖掘相关的内容，今天下载了一些慕课实战的视频，感觉对自己知识面的扩充很有帮助，从明天晚上开始不看电视了，每天坚持看视频，白天练习，同时一定要完成论文的发表。计划接下来一定要完成的事情是：1）论文；2）每天坚持看视频，">
@@ -327,6 +327,54 @@
 <h2 id="Day153-20171019"><a href="#Day153-20171019" class="headerlink" title="Day153: 20171019"></a>Day153: 20171019</h2><p>1、今天把分析页面能做完的都做完了，剩下的是没有数据的图和复杂的图，同时列表页面也做了，选择框没做，如果不需要的话就不做了，这样基本功能都差不多实现了，接下来就看领导们安排了。<br>2、机器学习这本书还得加快进度了，计划好10-3月这六个月的时间好好准备，转眼已经过去一个月的时间，感觉自己在此花费的时间还是不够多。这6个月计划两个阶段的任务：第一阶段是基础知识复习，主要包括机器学习、深度学习、Python（Numpy，Pandas和Scipy），若有时间再把线性代数温习一遍；第二阶段是领域知识和数据挖掘的结合，定位自然语言处理，结合论文的实际项目来进行实施，并总结成文，分享到github中。计划今年以内完全实现第一阶段的任务，因此11月份至少要完成机器学习这本书的阅读，加油。</p>
 <h2 id="Day154-20171022"><a href="#Day154-20171022" class="headerlink" title="Day154: 20171022"></a>Day154: 20171022</h2><p>1、上周把专利密度库的基础部分做的差不多了，接下来就是细节部分的修正和图形部分的补充，开会听了领导的想法之后，又觉得只是重新做一遍而已，他们也只是为了年底的汇报总结，让人生无可恋，那我只能加紧脚步，尽快把计划内的任务完成。<br>2、周日在家看了会小说，发现自己能够很快的静下心来进行书中情境中，这是以前很难做到的，可能跟自己近一年静心学习有很大的关系，空闲时间看看这些闲书也是蛮舒服的一件事情，家里还有好多买了还没看的书，没事看看挺不错的，多学习别人的表达方式。<br>3、这次真的决定早起了，知道很难，但是一定要坚持，每天早起一点即使看十分钟英语也是好的，相信日积月累会有回报的，加油。</p>
 <h2 id="Day155-20171023"><a href="#Day155-20171023" class="headerlink" title="Day155: 20171023"></a>Day155: 20171023</h2><p>1、今天学习到了一个新的技能——采集数据并分词绘制云图，虽然功能比较简单，但是对我来说是一个新的知识点和技能点，经过一天的学习和实践，已经能够基本实现，但其中还是有些问题存在，比如清洗符号有问题、未去除停用词、以及WordCloud函数的用法还不太熟悉，明天把这几个问题进行消化，看看是不是能继续在此基础上往前推进一步。<br>2、今天终于使用上了Python的编辑器PyCharm，之前一直懒得用，用上之后才发现这个是如此的好用，有了这么好的工具以后要多多练习啦。</p>
+<h2 id="Day156-20171024"><a href="#Day156-20171024" class="headerlink" title="Day156: 20171024"></a>Day156: 20171024</h2><p>1、今天把云图实例又整理了一遍，基本熟悉了整个绘制的流程，现把绘制词云的步骤和关键知识点总结如下。</p>
+<ul>
+<li>1）采集数据。</li>
+</ul>
+<p>在本例中我采集的是豆瓣《王牌特工2：黄金圈》这部电影的部分评论数据，因为网站限制采集了大约200条评论作为数据集。核心提取字段代码为：</p>
+<pre><code>movie_items = re.findall(r&apos;&lt;div.*?class=&quot;comment&quot;.*?&lt;p.*?class.*?&gt;(.*?)&lt;/p&gt;.*?&lt;/div&gt;&apos;, my_page, re.S)
+</code></pre><ul>
+<li>2）数据处理。</li>
+</ul>
+<p>将数据集做以下处理：合并所有评论数据；去除停用词（符号、停用词表、自定义停用词词库）；分词。其中，分词采用结巴分词。本例中为了方便舍弃了去除停用词的步骤，在实际的应用中还是需要加入的，而且构建自定义停用词还是蛮重要的，jieba程序包中提供了相应的接口进行实现。</p>
+<ul>
+<li>3）提取关键词。</li>
+</ul>
+<p>提取关键词最常采用的是TF-IDF（词频-逆向文件频率）算法策略，jieba软件包中也提供了此项功能，通过代码</p>
+<pre><code>jieba.analyse.extract_tags()
+</code></pre><p>即可实现。本例未进行此步骤的操作，只是拿来了全部的分词结构进行词云构建，因此具体实现方法待以后做实际项目中再进行深入学习。</p>
+<ul>
+<li>4）绘制词云。</li>
+</ul>
+<p>得到关键词列表后即可进行词云的绘制，需先下载第三方库wordcloud，具体步骤是：可先设置背景图片，图片深色部分即为绘制区域，不设置的话默认是矩阵形式；第二步，构建词云图，通过<strong>WordCloud().generate(word_split)</strong>函数实现，其中参数word_split为关键词列表，通过空格隔开；最后，绘制图形，通过matplotlib.pyplot工具包实现，猜测可能有更漂亮的实现形式，待以后发现，同时，wordcloud还提供了根据背景图片颜色创建相似颜色的功能，采用ImageColorGenerator()函数即可；若需要保存生成的词云，可使用word_cloud.to_file()函数实现。</p>
+<pre><code># 设置背景图片
+color_mask = imread(&quot;xin.jpg&quot;)
+# 获取停用词
+stopwords = [w.strip() for w in open(&quot;stopWord.txt&quot;,&quot;r&quot;).readlines()]
+#print stopwords
+#sys.exit()
+
+word_cloud = WordCloud(font_path=&apos;simsun.ttc&apos;,
+                       background_color=&quot;white&quot;, max_words=1000, mask=color_mask,
+                       stopwords=stopwords, max_font_size=40, random_state=42)  # wordcloud参数定义
+word_cloud.generate(word_split)  # 生成词云图
+
+# 画图
+plt.imshow(word_cloud, interpolation=&quot;bilinear&quot;)
+plt.axis(&quot;off&quot;)
+plt.figure() # 绘制图形
+# recolor wordclound and show
+image_colors = ImageColorGenerator(color_mask) # 根据图片创建颜色
+plt.imshow(word_cloud.recolor(color_func=image_colors),interpolation=&quot;bilinear&quot;)
+plt.axis(&quot;off&quot;)
+plt.figure()
+#plt.imshow(color_mask,cmap=plt.cm.gray, interpolation=&quot;bilinear&quot;)
+#plt.axis(&quot;off&quot;)
+plt.show()
+
+# 保存图片
+#word_cloud.to_file(&quot;wc.png&quot;)
+</code></pre><p>2、今天采用了一种全新的方式来学习英语，将之前在网上找到的英语800句学习资料，每天抄录、学习其中的10句，上午5句，下午5句，抄录的同时把不懂的单词和词组标识出来，每天花费的时间也不算很多，而且把这些句子抄录在之前严选上买的小本本上正合适，每天上下班放在包里作为口袋英语，路上没事拿出来看看，加深下印象，英语的学习是个积累的过程，努力积累，提高自己的单词量和口语能力。</p>
 
       
     </div>
@@ -489,7 +537,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Day145-20171008"><span class="nav-number">1.</span> <span class="nav-text">Day145: 20171008</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day146-20171009"><span class="nav-number">2.</span> <span class="nav-text">Day146: 20171009</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day147-20171010"><span class="nav-number">3.</span> <span class="nav-text">Day147: 20171010</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day148-20171011"><span class="nav-number">4.</span> <span class="nav-text">Day148: 20171011</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day149-20171012"><span class="nav-number">5.</span> <span class="nav-text">Day149: 20171012</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day150-20171015"><span class="nav-number">6.</span> <span class="nav-text">Day150: 20171015</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day151-20171016"><span class="nav-number">7.</span> <span class="nav-text">Day151: 20171016</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day152-20171017"><span class="nav-number">8.</span> <span class="nav-text">Day152: 20171017</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day153-20171019"><span class="nav-number">9.</span> <span class="nav-text">Day153: 20171019</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day154-20171022"><span class="nav-number">10.</span> <span class="nav-text">Day154: 20171022</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day155-20171023"><span class="nav-number">11.</span> <span class="nav-text">Day155: 20171023</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Day145-20171008"><span class="nav-number">1.</span> <span class="nav-text">Day145: 20171008</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day146-20171009"><span class="nav-number">2.</span> <span class="nav-text">Day146: 20171009</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day147-20171010"><span class="nav-number">3.</span> <span class="nav-text">Day147: 20171010</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day148-20171011"><span class="nav-number">4.</span> <span class="nav-text">Day148: 20171011</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day149-20171012"><span class="nav-number">5.</span> <span class="nav-text">Day149: 20171012</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day150-20171015"><span class="nav-number">6.</span> <span class="nav-text">Day150: 20171015</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day151-20171016"><span class="nav-number">7.</span> <span class="nav-text">Day151: 20171016</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day152-20171017"><span class="nav-number">8.</span> <span class="nav-text">Day152: 20171017</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day153-20171019"><span class="nav-number">9.</span> <span class="nav-text">Day153: 20171019</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day154-20171022"><span class="nav-number">10.</span> <span class="nav-text">Day154: 20171022</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day155-20171023"><span class="nav-number">11.</span> <span class="nav-text">Day155: 20171023</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day156-20171024"><span class="nav-number">12.</span> <span class="nav-text">Day156: 20171024</span></a></li></ol></div>
             
           </div>
         </section>
