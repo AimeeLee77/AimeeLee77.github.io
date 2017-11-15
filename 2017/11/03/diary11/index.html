@@ -90,7 +90,7 @@
 <meta property="og:url" content="https://aimeelee77.github.io/2017/11/03/diary11/index.html">
 <meta property="og:site_name" content="AimeeLee的小世界">
 <meta property="og:description" content="Day161: 201711011、今天开始要做智慧小镇的静态页面了，不知如何下手，在网上找了一圈发现这种页面全部都不能免费观看，看来还是得靠自己来实现了。同时，在寻找的过程中，看到阿里云上各种高端的应用了，包括机器学习算法的接口，以及AI的接口，有时间的话来研究学习。2、机器学习总结今天完成了线性模型部分，感觉虽然强化了一遍，还是需要再重复阅读才能真正理解其中的框架、理论、公式，总结完了需要反复">
-<meta property="og:updated_time" content="2017-11-14T01:06:42.642Z">
+<meta property="og:updated_time" content="2017-11-15T02:35:42.253Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="成功日记2017年11月">
 <meta name="twitter:description" content="Day161: 201711011、今天开始要做智慧小镇的静态页面了，不知如何下手，在网上找了一圈发现这种页面全部都不能免费观看，看来还是得靠自己来实现了。同时，在寻找的过程中，看到阿里云上各种高端的应用了，包括机器学习算法的接口，以及AI的接口，有时间的话来研究学习。2、机器学习总结今天完成了线性模型部分，感觉虽然强化了一遍，还是需要再重复阅读才能真正理解其中的框架、理论、公式，总结完了需要反复">
@@ -331,6 +331,15 @@
 </ul>
 <p>2、今天下午开始做汽车专利词表自动生成的项目，主要熟悉了之前做的Python代码和数据结构，并实现了把专利标题和摘要读取、下载至文本的功能，明天继续后续步骤。</p>
 <h2 id="Day167-201711013"><a href="#Day167-201711013" class="headerlink" title="Day167: 201711013"></a>Day167: 201711013</h2><p>1、今天把神经网络一章中的BP算法、全局最小和局部极小进行了总结。BP算法是在ANN网络结构的基础上，通过误差逆向传播的方法来调整权值和阈值，即正向计算误差、逆向调整参数，进行不断迭代得到确定的连接权值与阈值，从而行程多层前馈神经网络模型。而神经网络采用梯度下降的参数寻优方法，容易陷入局部极小，为了跳出局部极小，达到全局最小，常用的策略是：采用多组不同的参数值初始化网络、模拟退火、随机梯度下降和遗传算法等。<br>2、下午认真阅读了关于TextRank关键词抽取的论文，决定拿自己有的专利数据进行实验。论文的方法比较复杂，我还没有完全弄明白，计划先用最精简的方法进行实验，主要步骤是：1）利用wiki中文资料构建Word2Vec词向量；2）使用TextRank方法构建候选关键词；3）抽取候选关键词向量表示并进行K均值聚类；4）计算得到节点重要性得分，取TopN作为关键词。目前，基于之前的工作前两个步骤已经完成，这周的目标就是完成该实验，并做好总结。</p>
+<h2 id="Day168-201711014"><a href="#Day168-201711014" class="headerlink" title="Day168: 201711014"></a>Day168: 201711014</h2><p>1、今天完成了神经网络一章的总结，主要介绍了ANN、BP算法和深度学习。该章节的重点内容总结如下：</p>
+<ul>
+<li>神经网络是由多个神经元模型按层次结构连接而成的。</li>
+<li>一个神经元将输入信号通过带权重的连接进行传递，接受到的值与阈值进行比较，通过激活函数（一般是Sigmoid函数）得到输出。</li>
+<li>感知机用于解决线性可分的问题，只由两层神经元组成；线性不可分的情况采用多层前馈神经网络，即包含多层功能神经元。</li>
+<li>BP算法是误差逆向传播算法，通过误差逆向传播的方法调整权值与阈值，从而确定最优参数。解决BP算法过拟合的两种策略是早停和正则化。</li>
+<li>深度学习是多个隐层的神经网络。主要有两个特点，一是无监督逐层训练，即每次训练一个隐层，上一层的输出作为当前层的输入，当前层的输出作为下一层的输入，完成后再对整个网络进行微调，代表算法是DBN（深度信念网络）；二是权值共享，即让同层的一组神经元使用相同的连接权，代表算法是CNN。</li>
+</ul>
+<p>2、今天下午继续专利关键词提取的工作，实现了第三个步骤——将抽取出的候选关键词向量表示进行K均值聚类，得到分类结果，但是没弄明白如何去分析、处理这个结果，明天继续阅读相关文献资料，看看接下来如何实践。</p>
 
       
     </div>
@@ -493,7 +502,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Day161-20171101"><span class="nav-number">1.</span> <span class="nav-text">Day161: 20171101</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day162-20171105"><span class="nav-number">2.</span> <span class="nav-text">Day162: 20171105</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day163-20171106"><span class="nav-number">3.</span> <span class="nav-text">Day163: 20171106</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day164-20171107"><span class="nav-number">4.</span> <span class="nav-text">Day164: 20171107</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day165-20171108"><span class="nav-number">5.</span> <span class="nav-text">Day165: 20171108</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day166-20171109"><span class="nav-number">6.</span> <span class="nav-text">Day166: 20171109</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day167-201711013"><span class="nav-number">7.</span> <span class="nav-text">Day167: 201711013</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Day161-20171101"><span class="nav-number">1.</span> <span class="nav-text">Day161: 20171101</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day162-20171105"><span class="nav-number">2.</span> <span class="nav-text">Day162: 20171105</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day163-20171106"><span class="nav-number">3.</span> <span class="nav-text">Day163: 20171106</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day164-20171107"><span class="nav-number">4.</span> <span class="nav-text">Day164: 20171107</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day165-20171108"><span class="nav-number">5.</span> <span class="nav-text">Day165: 20171108</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day166-20171109"><span class="nav-number">6.</span> <span class="nav-text">Day166: 20171109</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day167-201711013"><span class="nav-number">7.</span> <span class="nav-text">Day167: 201711013</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day168-201711014"><span class="nav-number">8.</span> <span class="nav-text">Day168: 201711014</span></a></li></ol></div>
             
           </div>
         </section>
