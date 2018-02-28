@@ -90,7 +90,7 @@
 <meta property="og:url" content="https://aimeelee77.github.io/2018/02/02/diary1802/index.html">
 <meta property="og:site_name" content="AimeeLee的小世界">
 <meta property="og:description" content="Day205: 201802011、这两天跟同事沟通好了怎样来写创新主体部分的内容，并写好了合作部分的内容，以及其他需要修改的地方，目前只剩下专利布局这一小节的内容了，明天上午完成后，整理全部文档发给同事，彻底将这项工作告一段落，下午开开心心的参加单位的趣味运动会。下周也是不能闲着，开始做国际专利平台部分的内容，之前有过的图形应该没什么太大问题，主要攻克的难点是新增的图形，争取能够在年前全部完成。">
-<meta property="og:updated_time" content="2018-02-27T00:55:20.226Z">
+<meta property="og:updated_time" content="2018-02-28T00:41:54.890Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="成功日记2018年2月">
 <meta name="twitter:description" content="Day205: 201802011、这两天跟同事沟通好了怎样来写创新主体部分的内容，并写好了合作部分的内容，以及其他需要修改的地方，目前只剩下专利布局这一小节的内容了，明天上午完成后，整理全部文档发给同事，彻底将这项工作告一段落，下午开开心心的参加单位的趣味运动会。下周也是不能闲着，开始做国际专利平台部分的内容，之前有过的图形应该没什么太大问题，主要攻克的难点是新增的图形，争取能够在年前全部完成。">
@@ -325,6 +325,15 @@
 <h2 id="Day211-20180223"><a href="#Day211-20180223" class="headerlink" title="Day211: 20180223"></a>Day211: 20180223</h2><p>1、今天是年后上班第一天，总结年前计划完成的事情，第一件是产业链词表自动构建的实验，已经完成了最重要的部分即词向量的训练，同时根据新的数据集进行了整套流程，只是结果不尽如人意，计划二月份余下的几天好好研究下如何调整数据或者实验步骤让结果可以更加有效；第二件事是机器学习的总结，图概率模型部分已经看了不少，只剩下最后一章即强化学习，大致翻了下真的是看不懂，决定这次也不强求，先将概念进行总结，了解其基本概念，待之后需要的话慢慢来进行研究。今年的任务还是比较重的，离7月只剩4个月的时间，而其中真正有效的学习时间可能只有2个月到4月底为止，一定要抓紧时间务必完成计划，不再拖延！<br>2、今天在玩玩学学的状态下把概率图模型一章的内容总结完了，只是了解了常见算法的基本概念，毕竟这块内容之前没有深入学习研究过，根据以往所看LDA即一种常见的话题模型是使用最频繁的概率图模型，待完成既定的学习任务后来研究这个算法并加以实施。明天将继续在这种状态下完成最后一章强化学习的内容，至此将结束这一学习任务，将重心放在产业链词表的构建项目上，全力攻克这道难关。</p>
 <h2 id="Day212-20180225"><a href="#Day212-20180225" class="headerlink" title="Day212: 20180225"></a>Day212: 20180225</h2><p>1、上周把机器学习的内容总结完了，最后一章强化学习的内容实在是看不懂，所以也就是走马观花的过了一遍，待以后需要时再来仔细研究。下周开始把所有的精力都放在产业链词表构建的任务上来，其他的事情全部都先搁置，预计花费一个月的时间完成实验和写作，这次一定要把这件事情办成，给自己一个交代，加油。</p>
 <h2 id="Day213-20180226"><a href="#Day213-20180226" class="headerlink" title="Day213: 20180226"></a>Day213: 20180226</h2><p>1、今天开始做词表构建的工作，完成了数据库中人工构建此表的读取，与之前用的Excel中的数据相差无几，只是删减了全部的同义词，这种感觉数据比较干净，就按照库中的数据来。目前遇到的难题是如何将相邻的关键词组合成多词关键词，资料说要将得到的关键词在文本中进行标记，但是怎么去标记呢，暂时还没有想到解决问题的思路。另外基本停用词的扩充也是必须先做的，得到的top10个关键词中存在很多停用词，这极大的影响了关键词的准确性，因此可以先整理停用词，来进一步提高预测结果的准确率。</p>
+<h2 id="Day214-20180227"><a href="#Day214-20180227" class="headerlink" title="Day214: 20180227"></a>Day214: 20180227</h2><p>1、今天上午在思考如何组合文本相邻关键词的过程中发现，若在构建候选关键词先进行组合的话会导致许多无需被组合的进行了组合或者多个词进行了多余的组合，这样反而会降低准确率，因此，考虑在最后一步标记人工构建关键词来进行组合。另外在整理、对比、扩充停用词的过程中，想到应该先检测人工构建的关键词是否都存在数据集中，若词本身不存在则绝对无法提取出来，因此，进行了相关实验。<br>实验结果表明，人工构建的关键词共370个，数据集1中包含325个，其中标题包含268个，摘要包含剩余中的57个。这一结果说明了对于关键词中包含的词进行抽取可以得到绝大部分的关键词，根据这一实验结果，也让我重新构思了实验的细节流程，具体如下。</p>
+<ul>
+<li>新增数据集2和7，可包含绝大部分的人工构建关键词，仅剩下27个，这个可在文章中标明；</li>
+<li>标题中包含绝大部分关键词，可以增加标题中词语的权重；</li>
+<li>亦可以先对标题进行关键词抽取再对摘要进行关键词抽取；</li>
+<li>根据分词结果进行停用词的扩充非常重要，可增大关键词进入topN的几率；</li>
+<li>根据最后得到的关键词结果来进行相邻关键词的组合。</li>
+</ul>
+<p>越做越觉得很多需要调整的地方，实验任重而道远，加油！<br>2、下午继续思考实验中存在的问题，现在还需要解决的就是如何增加标题中词语的权重，实验中用的是jieba包中已经封装好的函数，无法进行调整，这样一来即需要自己写个TextRank算法进行方法的改进以及代码的调整。总结下来，目前需要做的是两件事情，一个是新增数据集2训练词向量模型，这个只需抽少量时间在家完成即可；另外一个是重写TextRank算法并进行代码改进，这个将是近几天的主要任务；同时，这段时间要开始看相关论文了，为写作做好准备。</p>
 
       
     </div>
@@ -487,7 +496,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Day205-20180201"><span class="nav-number">1.</span> <span class="nav-text">Day205: 20180201</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day206-20180204"><span class="nav-number">2.</span> <span class="nav-text">Day206: 20180204</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day207-20180205"><span class="nav-number">3.</span> <span class="nav-text">Day207: 20180205</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day208-20180206"><span class="nav-number">4.</span> <span class="nav-text">Day208: 20180206</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day209-20180217"><span class="nav-number">5.</span> <span class="nav-text">Day209: 20180217</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day210-20180219"><span class="nav-number">6.</span> <span class="nav-text">Day210: 20180219</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day211-20180223"><span class="nav-number">7.</span> <span class="nav-text">Day211: 20180223</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day212-20180225"><span class="nav-number">8.</span> <span class="nav-text">Day212: 20180225</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day213-20180226"><span class="nav-number">9.</span> <span class="nav-text">Day213: 20180226</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Day205-20180201"><span class="nav-number">1.</span> <span class="nav-text">Day205: 20180201</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day206-20180204"><span class="nav-number">2.</span> <span class="nav-text">Day206: 20180204</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day207-20180205"><span class="nav-number">3.</span> <span class="nav-text">Day207: 20180205</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day208-20180206"><span class="nav-number">4.</span> <span class="nav-text">Day208: 20180206</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day209-20180217"><span class="nav-number">5.</span> <span class="nav-text">Day209: 20180217</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day210-20180219"><span class="nav-number">6.</span> <span class="nav-text">Day210: 20180219</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day211-20180223"><span class="nav-number">7.</span> <span class="nav-text">Day211: 20180223</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day212-20180225"><span class="nav-number">8.</span> <span class="nav-text">Day212: 20180225</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day213-20180226"><span class="nav-number">9.</span> <span class="nav-text">Day213: 20180226</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day214-20180227"><span class="nav-number">10.</span> <span class="nav-text">Day214: 20180227</span></a></li></ol></div>
             
           </div>
         </section>
