@@ -90,7 +90,7 @@
 <meta property="og:url" content="https://aimeelee77.github.io/2018/05/04/diary1805/index.html">
 <meta property="og:site_name" content="AimeeLee的小世界">
 <meta property="og:description" content="Day253: 201805031、这两天一直在研究实验项目，目前已经将原始语料库进行了扩充，并保留了产业链词表中的词汇，训练得到了词向量文件，余下没有向量表示词汇是因为在文本中从未出现过，这个在文中说明即可；原计划需在结合wiki语料+专利语料进行词向量训练，仔细查看发现wiki语料的文章数量约为20W+，专利语料的文章数量约为38w+，考虑到专利语料已经是超过wiki语料的大型语料库，且全部为">
-<meta property="og:updated_time" content="2018-05-04T01:06:56.363Z">
+<meta property="og:updated_time" content="2018-05-07T01:01:48.409Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="成功日记2018年5月">
 <meta name="twitter:description" content="Day253: 201805031、这两天一直在研究实验项目，目前已经将原始语料库进行了扩充，并保留了产业链词表中的词汇，训练得到了词向量文件，余下没有向量表示词汇是因为在文本中从未出现过，这个在文中说明即可；原计划需在结合wiki语料+专利语料进行词向量训练，仔细查看发现wiki语料的文章数量约为20W+，专利语料的文章数量约为38w+，考虑到专利语料已经是超过wiki语料的大型语料库，且全部为">
@@ -317,6 +317,7 @@
 
       
         <h2 id="Day253-20180503"><a href="#Day253-20180503" class="headerlink" title="Day253: 20180503"></a>Day253: 20180503</h2><p>1、这两天一直在研究实验项目，目前已经将原始语料库进行了扩充，并保留了产业链词表中的词汇，训练得到了词向量文件，余下没有向量表示词汇是因为在文本中从未出现过，这个在文中说明即可；原计划需在结合wiki语料+专利语料进行词向量训练，仔细查看发现wiki语料的文章数量约为20W+，专利语料的文章数量约为38w+，考虑到专利语料已经是超过wiki语料的大型语料库，且全部为专利相关词汇，更具有代表性，因此无需在进行此操作；另外，已经调整了TextRank算法，但仍是基本的方法未进行优化，先用该算法进行实验查看实验结果，再来考虑进一步的调整。就目前的情况而言，已经全部完成了词向量的训练部分，接下来重点就是抽取专利文本的关键词，如何能够得到最优的关键词了，在该步骤需验证抽取的关键词是否包含大部分的产业链词表中词汇。<br>2、工作部分已经找到将emz文件批量转换成jpg格式的简便方法，明天将基础竞争力分析报告2017的余下部分完成，另下周开始进行知识产权平台的页面设计和功能实现工作。</p>
+<h2 id="Day254-20180506"><a href="#Day254-20180506" class="headerlink" title="Day254: 20180506"></a>Day254: 20180506</h2><p>1、周五一整天都在处理在线报告的剩余部分，因为有100个小节的内容，还包括了标题、文字、图片、表格等一系列内容，处理起来颇为复杂，目前已经想到利用Excel来建立公式批量处理部分内容，但是未完成，明天继续先完成该项工作，至于表格因为其复杂性预计先搁置。完成该项工作后，即开始进行知识产权平台的设计与开发。<br>2、周末在家将原始的专利文本进行了重新处理，去除了停用词，使得分词结果更为简洁，并结合了后加入的专利文本，去除重复专利后得到了约32W条专利记录，后来意识到抽取出的专利也包含在所有专利中了，不过进行了去重操作也是可以使用该语料的作为该实验的训练数据集。根据数据集和训练得到的词向量文件，采用结巴分词自带的TextRank算法进行了实验，发现实验结果仍然不尽如意，因此还需进一步的进行调整。整理思路目前能够明确的一点是，关键词抽取后首先验证包含的词表中词汇的个数，若包含较少分析为什么，是否需要合并复合词。</p>
 
       
     </div>
@@ -479,7 +480,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Day253-20180503"><span class="nav-number">1.</span> <span class="nav-text">Day253: 20180503</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Day253-20180503"><span class="nav-number">1.</span> <span class="nav-text">Day253: 20180503</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day254-20180506"><span class="nav-number">2.</span> <span class="nav-text">Day254: 20180506</span></a></li></ol></div>
             
           </div>
         </section>
