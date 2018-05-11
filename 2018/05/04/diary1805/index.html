@@ -90,7 +90,7 @@
 <meta property="og:url" content="https://aimeelee77.github.io/2018/05/04/diary1805/index.html">
 <meta property="og:site_name" content="AimeeLee的小世界">
 <meta property="og:description" content="Day253: 201805031、这两天一直在研究实验项目，目前已经将原始语料库进行了扩充，并保留了产业链词表中的词汇，训练得到了词向量文件，余下没有向量表示词汇是因为在文本中从未出现过，这个在文中说明即可；原计划需在结合wiki语料+专利语料进行词向量训练，仔细查看发现wiki语料的文章数量约为20W+，专利语料的文章数量约为38w+，考虑到专利语料已经是超过wiki语料的大型语料库，且全部为">
-<meta property="og:updated_time" content="2018-05-10T01:02:22.367Z">
+<meta property="og:updated_time" content="2018-05-11T01:06:25.605Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="成功日记2018年5月">
 <meta name="twitter:description" content="Day253: 201805031、这两天一直在研究实验项目，目前已经将原始语料库进行了扩充，并保留了产业链词表中的词汇，训练得到了词向量文件，余下没有向量表示词汇是因为在文本中从未出现过，这个在文中说明即可；原计划需在结合wiki语料+专利语料进行词向量训练，仔细查看发现wiki语料的文章数量约为20W+，专利语料的文章数量约为38w+，考虑到专利语料已经是超过wiki语料的大型语料库，且全部为">
@@ -321,6 +321,7 @@
 <h2 id="Day255-20180507"><a href="#Day255-20180507" class="headerlink" title="Day255: 20180507"></a>Day255: 20180507</h2><p>1、今天的精神状态不好，上午把报告在线剩余的部分完成后上线后，就仿佛耗尽了我所有的力气，不能集中精神做事情。下午开始设计知识产权平台的页面，但是因为状态不好效果不佳，明天继续这项任务，这两天先将几个重要的页面设计完成，再与领导商讨到底要展示什么内容。</p>
 <h2 id="Day256-20180508"><a href="#Day256-20180508" class="headerlink" title="Day256: 20180508"></a>Day256: 20180508</h2><p>1、今天用重写的TextRank算法跑出了关键词抽取的结果，检验结果并不理想，关键词中包含的产业链词表中词汇只有50%，这将直接影响到词表构建的结果。观察发现，很多的词汇都因为分词而进行了拆分，无法得到完整的词汇，同时因为词性筛选过滤掉了一些分词后的词汇。根据这些可能导致结果不佳的原因，将进一步调整步骤，首先进行复合词拼接，看看结果是否更好，若还是不尽如人意，则直接从原始文本进行处理。</p>
 <h2 id="Day257-20180509"><a href="#Day257-20180509" class="headerlink" title="Day257: 20180509"></a>Day257: 20180509</h2><p>1、今天针对关键词抽取结果不佳的问题进行了调整，对比产业链词表中的词汇，对拆开的复合词进行了合并处理，验证结果发现包含的词表中词汇高达89%，这也意味着关键词抽取步骤的优化已经完成。根据合并后的关键词进行接下来的步骤，发现在相似词获取的过程中效果依然较差，只能得到不到100个的相似词汇，因此下一步的核心工作就是思考如何调整词聚类的过程。</p>
+<h2 id="Day258-20180510"><a href="#Day258-20180510" class="headerlink" title="Day258: 20180510"></a>Day258: 20180510</h2><p>1、今天一直都在做知识产权平台的页面设计工作，目前首页已经完成了大部分的设计，明天继续进行余下的几个页面，争取能够全部完成，下个星期好继续实验的相关工作。</p>
 
       
     </div>
@@ -483,7 +484,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Day253-20180503"><span class="nav-number">1.</span> <span class="nav-text">Day253: 20180503</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day254-20180506"><span class="nav-number">2.</span> <span class="nav-text">Day254: 20180506</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day255-20180507"><span class="nav-number">3.</span> <span class="nav-text">Day255: 20180507</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day256-20180508"><span class="nav-number">4.</span> <span class="nav-text">Day256: 20180508</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day257-20180509"><span class="nav-number">5.</span> <span class="nav-text">Day257: 20180509</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Day253-20180503"><span class="nav-number">1.</span> <span class="nav-text">Day253: 20180503</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day254-20180506"><span class="nav-number">2.</span> <span class="nav-text">Day254: 20180506</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day255-20180507"><span class="nav-number">3.</span> <span class="nav-text">Day255: 20180507</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day256-20180508"><span class="nav-number">4.</span> <span class="nav-text">Day256: 20180508</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day257-20180509"><span class="nav-number">5.</span> <span class="nav-text">Day257: 20180509</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day258-20180510"><span class="nav-number">6.</span> <span class="nav-text">Day258: 20180510</span></a></li></ol></div>
             
           </div>
         </section>
